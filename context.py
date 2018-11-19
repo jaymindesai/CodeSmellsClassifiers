@@ -9,5 +9,11 @@ FILES = [f'{DATA_PATH}/_data-class.csv',
          f'{DATA_PATH}/_god-class.csv',
          f'{DATA_PATH}/_long-method.csv']
 
+# FILES = [f'{DATA_PATH}/_data-class.csv']
+
 SYM_COLS = ['isStatic_method',
             'isStatic_type']
+
+
+def metrics(tn, fp, fn, tp):
+    return None

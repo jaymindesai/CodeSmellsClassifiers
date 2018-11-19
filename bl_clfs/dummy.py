@@ -1,10 +1,10 @@
 import context
 import pandas
 
+from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
-from sklearn.model_selection import train_test_split
 
 for file in context.FILES:
 
@@ -16,18 +16,32 @@ for file in context.FILES:
     labels = data_frame['SMELLS'].apply(lambda x: 1 if x else 0)
     unlabeled_data = data_frame.drop(columns=['SMELLS'])
 
-    X_train, X_test, y_train, y_test = train_test_split(unlabeled_data,
-                                                        labels,
-                                                        stratify=labels,
-                                                        test_size=0.25,
-                                                        random_state=0)
-
+    skfolds = StratifiedKFold(n_splits=5, random_state=0)
     dummy = DummyClassifier(random_state=0)
 
-    dummy.fit(X_train, y_train)
+    fold = 0
 
-    dummy_pred = dummy.predict(X_test)
+    print('----- ' + file_name + ' -----\n')
 
-    dummy_cmat = confusion_matrix(y_test, dummy_pred)
+    for train_index, test_index in skfolds.split(unlabeled_data, labels):
 
-    print(dummy_cmat, '\n---')
+        cloned_dummy = clone(dummy)
+
+        X_train_folds = unlabeled_data.iloc[train_index]
+        y_train_folds = labels.iloc[train_index]
+
+        X_test_folds = unlabeled_data.iloc[test_index]
+        y_test_folds = labels.iloc[test_index]
+
+        cloned_dummy.fit(X_train_folds, y_train_folds)
+
+        dummy_pred = cloned_dummy.predict(X_test_folds)
+
+        tn, fp, fn, tp = confusion_matrix(y_test_folds, dummy_pred).ravel()
+
+        print(f'FOLD {fold}', '>>', '\tTN:', tn, '\tFP:', fp, '\tFN:', fn, '\tTP:', tp)
+
+        fold += 1
+
+    print()
+
