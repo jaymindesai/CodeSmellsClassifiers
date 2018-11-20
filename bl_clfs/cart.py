@@ -7,12 +7,12 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 
-print('\nCART\n')
+# print('\nCART\n')
 
 for file in context.FILES:
 
     # Retrieve the file name for reporting
-    file_name = file.split('/')[-1]
+    file_name = file.split('/')[-1].split('.')[0]
 
     # Generate a DataFrame from the csv file
     # Drop the two symbolic columns if present
@@ -75,13 +75,23 @@ for file in context.FILES:
 
         run += 1
 
-    print(f'----- {file_name} -----\n')
+    # print(f'----- {file_name} -----\n')
+    #
+    # for metric in metrics:
+    #     print(f'-- {metric} --\n')
+    #     for index, value in enumerate(metrics[metric]):
+    #         if index == len(metrics[metric]) - 1:
+    #             print(value, end='')
+    #         else:
+    #             print(value, end=',')
+    #     print('\n')
 
     for metric in metrics:
-        print(f'-- {metric} --\n')
-        for index, value in enumerate(metrics[metric]):
-            if index == len(metrics[metric]) - 1:
-                print(value, end='')
-            else:
-                print(value, end=',')
-        print('\n')
+        with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.csv', 'a+') as output_file:
+            output_file.write('CART,')
+            for index, value in enumerate(metrics[metric]):
+                if index == len(metrics[metric]) - 1:
+                    output_file.write(f'{value}')
+                else:
+                    output_file.write(f'{value},')
+            output_file.write('\n')
