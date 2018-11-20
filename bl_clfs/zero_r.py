@@ -6,12 +6,12 @@ from sklearn.dummy import DummyClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 
-print('\nZeroR\n')
+# print('\nZeroR\n')
 
 for file in context.FILES:
 
     # Retrieve the file name for reporting
-    file_name = file.split('/')[-1]
+    file_name = file.split('/')[-1].split('.')[0]
 
     # Generate a DataFrame from the csv file
     # Drop the two symbolic columns if present
@@ -39,7 +39,6 @@ for file in context.FILES:
         fold = 0
 
         for train_indices, test_indices in skfolds.split(unlabeled_data, labels):
-
             # Clone the ZeroR and Random Guess classifiers
             cloned_zero_r = clone(zero_r)
             cloned_rand_guess = clone(rand_guess)
@@ -74,13 +73,22 @@ for file in context.FILES:
 
         run += 1
 
-    print(f'----- {file_name} -----\n')
+    # print(f'----- {file_name} -----\n')
+    #
+    # for metric in metrics:
+    #     print(f'-- {metric} --\n')
+    #     for index, value in enumerate(metrics[metric]):
+    #         if index == len(metrics[metric]) - 1:
+    #             print(value, end='')
+    #         else:
+    #             print(value, end=',')
+    #     print('\n')
 
     for metric in metrics:
-        print(f'-- {metric} --\n')
-        for index, value in enumerate(metrics[metric]):
-            if index == len(metrics[metric]) - 1:
-                print(value, end='')
-            else:
-                print(value, end=',')
-        print('\n')
+        with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.csv', 'a+') as output_file:
+            output_file.write(f'{metric},ZeroR,')
+            for index, value in enumerate(metrics[metric]):
+                if index == len(metrics[metric]) - 1:
+                    output_file.write(value)
+                else:
+                    output_file.write(value + ',')
