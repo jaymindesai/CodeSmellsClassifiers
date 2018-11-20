@@ -6,12 +6,14 @@ from sklearn.dummy import DummyClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 
+print('\nZeroR\n')
+
 for file in context.FILES:
 
     # Retrieve the file name for reporting
     file_name = file.split('/')[-1]
 
-    # Generate a dataframe from the csv file
+    # Generate a DataFrame from the csv file
     # Drop the two symbolic columns if present
     data_frame = pandas.read_csv(file)
     data_frame.drop(columns=context.SYM_COLS, inplace=True, errors='ignore')
@@ -30,9 +32,6 @@ for file in context.FILES:
 
     # Set up a dictionary to record performance metrics for each run and fold
     metrics = {'f_score': [], 'kappa': [], 'pct_dth': [], 'inform': []}
-
-    # FOR TESTING ONLY
-    rand_metrics = {'f_score': [], 'kappa': [], 'pct_dth': [], 'inform': []}
 
     # Run the 5-fold cross-validation 5 times (25 results total)
     run = 0
@@ -61,25 +60,27 @@ for file in context.FILES:
             zero_r_pred = cloned_zero_r.predict(test_data)
             rand_guess_pred = cloned_rand_guess.predict(test_data)
 
-            # Generate the TN, FP, FN, TP metrics for the ZeroR and Random Guess classifiers
+            # Retrieve the TN, FP, FN, TP metrics for the ZeroR and Random Guess classifiers
             tn, fp, fn, tp = confusion_matrix(test_labels, zero_r_pred).ravel()
             rand_tn, rand_fp, rand_fn, rand_tp = confusion_matrix(test_labels, rand_guess_pred).ravel()
 
-            metrics['f_score'].append(context.f_score())
-            metrics['kappa'].append(context.kappa())
-            metrics['pct_dth'].append(context.pct_dth())
-            metrics['inform'].append(context.inform())
-
-            rand_metrics['f_score'].append(context.f_score())
-            rand_metrics['kappa'].append(context.kappa())
-            rand_metrics['pct_dth'].append(context.pct_dth())
-            rand_metrics['inform'].append(context.inform())
+            # Calculate the F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
+            metrics['f_score'].append(context.f_score(fp, fn, tp))
+            metrics['kappa'].append(context.kappa(tn, fp, fn, tp, rand_tn, rand_fp, rand_fn, rand_tp))
+            metrics['pct_dth'].append(context.pct_dth(tn, fp, fn, tp))
+            metrics['inform'].append(context.inform(tn, fp, fn, tp))
 
             fold += 1
 
         run += 1
 
-    print('----- ' + file_name + ' -----\n')
+    print(f'----- {file_name} -----\n')
 
     for metric in metrics:
-        print(metric, metrics[metric])
+        print(f'-- {metric} --\n')
+        for index, value in enumerate(metrics[metric]):
+            if index == len(metrics[metric]) - 1:
+                print(value, end='')
+            else:
+                print(value, end=',')
+        print('\n')
