@@ -85,11 +85,11 @@ for file in context.FILES:
     #     print('\n')
 
     for metric in metrics:
-        with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.csv', 'a+') as output_file:
-            output_file.write('ZeroR,')
+        with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+            output_file.write('ZeroR\n')
             for index, value in enumerate(metrics[metric]):
                 if index == len(metrics[metric]) - 1:
                     output_file.write(f'{value}')
                 else:
-                    output_file.write(f'{value},')
-            output_file.write('\n')
+                    output_file.write(f'{value} ')
+            output_file.write('\n\n')
