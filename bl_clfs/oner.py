@@ -3,10 +3,11 @@ import pandas
 
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 
-# print('\nZeroR\n')
+# print('\nOneR\n')
 
 for file in context.FILES:
 
@@ -26,8 +27,8 @@ for file in context.FILES:
     # Initialize the stratified k-folds
     skfolds = StratifiedKFold(n_splits=5, random_state=0)
 
-    # Initialize the ZeroR and Random Guess classifiers
-    zero_r = DummyClassifier(strategy='most_frequent', random_state=0)
+    # Initialize the OneR and Random Guess classifiers
+    oner = DecisionTreeClassifier(max_depth=1, random_state=0)
     rand_guess = DummyClassifier(strategy='uniform', random_state=0)
 
     # Set up a dictionary to record performance metrics for each run and fold
@@ -39,8 +40,8 @@ for file in context.FILES:
         fold = 0
 
         for train_indices, test_indices in skfolds.split(unlabeled_data, labels):
-            # Clone the ZeroR and Random Guess classifiers
-            cloned_zero_r = clone(zero_r)
+            # Clone the OneR and Random Guess classifiers
+            cloned_oner = clone(oner)
             cloned_rand_guess = clone(rand_guess)
 
             # Retrieve the training data and training labels for the fold
@@ -51,16 +52,16 @@ for file in context.FILES:
             test_data = unlabeled_data.iloc[test_indices]
             test_labels = labels.iloc[test_indices]
 
-            # Train the ZeroR and Random Guess classifiers for the fold
-            cloned_zero_r.fit(train_data, train_labels)
+            # Train the OneR and Random Guess classifiers for the fold
+            cloned_oner.fit(train_data, train_labels)
             cloned_rand_guess.fit(train_data, train_labels)
 
-            # Test the ZeroR and Random Guess classifiers for the fold
-            zero_r_pred = cloned_zero_r.predict(test_data)
+            # Test the OneR and Random Guess classifiers for the fold
+            oner_pred = cloned_oner.predict(test_data)
             rand_guess_pred = cloned_rand_guess.predict(test_data)
 
-            # Retrieve the TN, FP, FN, TP metrics for the ZeroR and Random Guess classifiers
-            tn, fp, fn, tp = confusion_matrix(test_labels, zero_r_pred).ravel()
+            # Retrieve the TN, FP, FN, TP metrics for the OneR and Random Guess classifiers
+            tn, fp, fn, tp = confusion_matrix(test_labels, oner_pred).ravel()
             rand_tn, rand_fp, rand_fn, rand_tp = confusion_matrix(test_labels, rand_guess_pred).ravel()
 
             # Calculate the F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
@@ -86,7 +87,7 @@ for file in context.FILES:
 
     for metric in metrics:
         with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-            output_file.write('ZeroR\n')
+            output_file.write('OneR\n')
             for index, value in enumerate(metrics[metric]):
                 if index == len(metrics[metric]) - 1:
                     output_file.write(f'{value}')
