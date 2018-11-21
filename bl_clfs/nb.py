@@ -1,5 +1,6 @@
-import context
+import os
 import pandas
+import sys
 
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
@@ -7,6 +8,13 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 from sklearn.naive_bayes import GaussianNB
 from sklearn.utils import shuffle
+
+root_path = os.path.dirname(os.path.abspath(__file__)).split('bl_clfs')[0]
+
+if root_path not in sys.path:
+    sys.path.append(str(root_path))
+
+import context
 
 # print('\nNB\n')
 
