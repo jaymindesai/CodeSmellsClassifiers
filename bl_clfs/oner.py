@@ -78,8 +78,6 @@ for file in context.FILES:
 
             fold += 1
 
-        run += 1
-
     # print(f'----- {file_name} -----\n')
     #
     # for metric in metrics:
