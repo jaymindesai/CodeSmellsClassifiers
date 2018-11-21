@@ -3,9 +3,10 @@ import pandas
 
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
-from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
+from sklearn.naive_bayes import GaussianNB
+from sklearn.utils import shuffle
 
 # print('\nNB\n')
 
@@ -19,11 +20,6 @@ for file in context.FILES:
     data_frame = pandas.read_csv(file)
     data_frame.drop(columns=context.SYM_COLS, inplace=True, errors='ignore')
 
-    # Store the labels, translating True -> 1 and False -> 0
-    # Remove the labels from the dataframe
-    labels = data_frame['SMELLS'].apply(lambda x: 1 if x else 0)
-    unlabeled_data = data_frame.drop(columns=['SMELLS'])
-
     # Initialize the stratified k-folds
     skfolds = StratifiedKFold(n_splits=5, random_state=0)
 
@@ -34,9 +30,18 @@ for file in context.FILES:
     # Set up a dictionary to record performance metrics for each run and fold
     metrics = {'f_score': [], 'kappa': [], 'pct_dth': [], 'inform': []}
 
-    # Run the 5-fold cross-validation 5 times (25 results total)
-    run = 0
-    for i in range(5):
+    # Run the 5-fold cross-validation for 5 runs, shuffling each run (25 results total)
+    for run in range(5):
+
+        # Shuffle the DataFrame
+        data_frame = shuffle(data_frame, random_state=0)
+
+        # Store the labels, translating True -> 1 and False -> 0
+        labels = data_frame['SMELLS'].apply(lambda x: 1 if x else 0)
+
+        # Remove the labels from the dataframe
+        unlabeled_data = data_frame.drop(columns=['SMELLS'])
+
         fold = 0
 
         for train_indices, test_indices in skfolds.split(unlabeled_data, labels):
