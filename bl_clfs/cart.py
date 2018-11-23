@@ -36,7 +36,7 @@ for file in context.FILES:
     rand_guess = DummyClassifier(strategy='uniform', random_state=0)
 
     # Set up a dictionary to record performance metrics for each run and fold
-    metrics = {'f_score': [], 'kappa': [], 'pct_dth': [], 'inform': []}
+    metrics = {'acc': [], 'f_score': [], 'kappa': [], 'pct_dth': [], 'inform': []}
 
     # Run the 5-fold cross-validation for 5 runs, shuffling each run (25 results total)
     for run in range(5):
@@ -78,7 +78,8 @@ for file in context.FILES:
             tn, fp, fn, tp = confusion_matrix(test_labels, cart_pred).ravel()
             rand_tn, rand_fp, rand_fn, rand_tp = confusion_matrix(test_labels, rand_guess_pred).ravel()
 
-            # Calculate the F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
+            # Calculate the Accuracy, F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
+            metrics['acc'].append(context.acc(tn, fp, fn, tp))
             metrics['f_score'].append(context.f_score(fp, fn, tp))
             metrics['kappa'].append(context.kappa(tn, fp, fn, tp, rand_tn, rand_fp, rand_fn, rand_tp))
             metrics['pct_dth'].append(context.pct_dth(tn, fp, fn, tp))
