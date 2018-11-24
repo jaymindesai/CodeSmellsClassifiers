@@ -159,10 +159,9 @@ for file in context.FILES:
     #             print([round(x, 2) for x in metrics[clf][metric]], '\n')
 
     for clf in metrics:
-        if clf != 'rand':
-            for metric in metrics[clf]:
-                with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-                    output_file.write(f'{clf}\n')
-                    for index, value in enumerate(metrics[clf][metric]):
-                        output_file.write(f'{value} ')
-                    output_file.write('\n\n')
+        for metric in metrics[clf]:
+            with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+                output_file.write(f'{clf}\n')
+                for index, value in enumerate(metrics[clf][metric]):
+                    output_file.write(f'{value} ')
+                output_file.write('\n\n')
