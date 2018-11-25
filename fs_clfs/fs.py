@@ -12,12 +12,16 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.utils import shuffle
 
-root_path = os.path.dirname(os.path.abspath(__file__)).split('bl_clfs')[0]
+root_path = os.path.dirname(os.path.abspath(__file__)).split('fs_clfs')[0]
 
 if root_path not in sys.path:
     sys.path.append(str(root_path))
 
 import context
+
+from skfeature.function.statistical_based import CFS
+from skfeature.function.wrapper import decision_tree_forward as dtf
+from skfeature.function.wrapper import svm_forward as svmf
 
 for file in context.FILES:
 
@@ -41,47 +45,59 @@ for file in context.FILES:
 
     # Set up a dictionary to record performance metrics for each classifier across runs/folds
     metrics = {'rand':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'oner':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'cart':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'nb':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'rf':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'svm':
-                   {'def': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmb': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf': {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
+                   {'def':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
 
     # Run the 5-fold cross-validation for 5 runs, shuffling each run
     for run in range(5):
@@ -100,12 +116,36 @@ for file in context.FILES:
         for train_indices, test_indices in skfolds.split(unlabeled_data, labels):
 
             # Clone the classifiers
-            cloned_classifiers = {'rand': clone(classifiers['rand']),
-                                  'oner': clone(classifiers['oner']),
-                                  'cart': clone(classifiers['cart']),
-                                  'nb': clone(classifiers['nb']),
-                                  'rf': clone(classifiers['rf']),
-                                  'svm': clone(classifiers['svm'])}
+            cloned_classifiers = {'rand':
+                                      {'def': clone(classifiers['rand']),
+                                       'cfs': clone(classifiers['rand']),
+                                       'dtf': clone(classifiers['rand']),
+                                       'svmf': clone(classifiers['rand'])},
+                                  'oner':
+                                      {'def': clone(classifiers['oner']),
+                                       'cfs': clone(classifiers['oner']),
+                                       'dtf': clone(classifiers['oner']),
+                                       'svmf': clone(classifiers['oner'])},
+                                  'cart':
+                                      {'def': clone(classifiers['cart']),
+                                       'cfs': clone(classifiers['cart']),
+                                       'dtf': clone(classifiers['cart']),
+                                       'svmf': clone(classifiers['cart'])},
+                                  'nb':
+                                      {'def': clone(classifiers['nb']),
+                                       'cfs': clone(classifiers['nb']),
+                                       'dtf': clone(classifiers['nb']),
+                                       'svmf': clone(classifiers['nb'])},
+                                  'rf':
+                                      {'def': clone(classifiers['rf']),
+                                       'cfs': clone(classifiers['rf']),
+                                       'dtf': clone(classifiers['rf']),
+                                       'svmf': clone(classifiers['rf'])},
+                                  'svm':
+                                      {'def': clone(classifiers['svm']),
+                                       'cfs': clone(classifiers['svm']),
+                                       'dtf': clone(classifiers['svm']),
+                                       'svmf': clone(classifiers['svm'])}}
 
             # Retrieve the training data and training labels for the fold
             train_data = unlabeled_data.iloc[train_indices]
@@ -115,94 +155,180 @@ for file in context.FILES:
             test_data = unlabeled_data.iloc[test_indices]
             test_labels = labels.iloc[test_indices]
 
-            # Train the classifiers for the fold
+            num_feats = int((len(train_labels) - 1) ** 0.5)
+
+            print(f'\n----- {file_name}-{run}-{fold} -----')
+
+            cfs_feats = CFS.cfs(train_data.values, train_labels.values)
+            cfs_train_data = train_data.iloc[:, cfs_feats]
+            cfs_test_data = test_data.iloc[:, cfs_feats]
+            print('\nCFS', list(cfs_train_data), '\n')
+
+            dtf_feats = dtf.decision_tree_forward(train_data.values, train_labels.values, num_feats)
+            dtf_train_data = train_data.iloc[:, dtf_feats]
+            dtf_test_data = test_data.iloc[:, dtf_feats]
+            print('DTF', list(dtf_train_data), '\n')
+
+            svmf_feats = svmf.svm_forward(train_data.values, train_labels.values, num_feats)
+            svmf_train_data = train_data.iloc[:, svmf_feats]
+            svmf_test_data = test_data.iloc[:, svmf_feats]
+            print('SVMF', list(svmf_train_data), '\n')
+
+            #Train the classifiers for the fold
             for clf in cloned_classifiers:
-                cloned_classifiers[clf].fit(train_data, train_labels)
+                for fs in cloned_classifiers[clf]:
+                    if fs == 'def':
+                        cloned_classifiers[clf][fs].fit(train_data, train_labels)
+                    elif fs == 'cfs':
+                        cloned_classifiers[clf][fs].fit(cfs_train_data, train_labels)
+                    elif fs == 'dtf':
+                        cloned_classifiers[clf][fs].fit(dtf_train_data, train_labels)
+                    elif fs == 'svmf':
+                        cloned_classifiers[clf][fs].fit(svmf_train_data, train_labels)
 
-            ########
-            #
-            #  PICK BACK UP HERE
-            #
-            ########
-
-            predictions = {'rand': {'def': None, 'cfs': None}None,
-                           'oner': None,
-                           'cart': None,
-                           'nb': None,
-                           'rf': None,
-                           'svm': None}
+            predictions = {'rand':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                           'oner':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                           'cart':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                           'nb':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                           'rf':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                           'svm':
+                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None}}
 
             # Test the classifiers for the fold
             for clf in predictions:
-                predictions[clf] = cloned_classifiers[clf].predict(test_data)
+                for fs in predictions[clf]:
+                    if fs == 'def':
+                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(test_data)
+                    elif fs == 'cfs':
+                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(cfs_test_data)
+                    elif fs == 'dtf':
+                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(dtf_test_data)
+                    elif fs == 'svmf':
+                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(svmf_test_data)
 
             matrix_metrics = {'rand':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'oner':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'cart':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'nb':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'rf':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'svm':
-                                  {'tn': None, 'fp': None, 'fn': None, 'tp': None}}
+                                  {'def':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'cfs':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'dtf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                   'svmf':
+                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None}}}
 
             # Retrieve the confusion matrix metrics for the classifiers
             for clf in matrix_metrics:
-
-                matrix_metrics[clf]['tn'], \
-                matrix_metrics[clf]['fp'], \
-                matrix_metrics[clf]['fn'], \
-                matrix_metrics[clf]['tp'] = confusion_matrix(test_labels, predictions[clf]).ravel()
+                for fs in matrix_metrics[clf]:
+                    matrix_metrics[clf][fs]['tn'], \
+                    matrix_metrics[clf][fs]['fp'], \
+                    matrix_metrics[clf][fs]['fn'], \
+                    matrix_metrics[clf][fs]['tp'] = confusion_matrix(test_labels, predictions[clf][fs]).ravel()
 
             # Calculate the Accuracy, F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
             for clf in metrics:
+                for fs in metrics[clf]:
 
-                metrics[clf]['acc'].append(context.acc(matrix_metrics[clf]['tn'],
-                                                       matrix_metrics[clf]['fp'],
-                                                       matrix_metrics[clf]['fn'],
-                                                       matrix_metrics[clf]['tp']))
+                    metrics[clf][fs]['acc'].append(context.acc(matrix_metrics[clf][fs]['tn'],
+                                                               matrix_metrics[clf][fs]['fp'],
+                                                               matrix_metrics[clf][fs]['fn'],
+                                                               matrix_metrics[clf][fs]['tp']))
 
-                metrics[clf]['f_score'].append(context.f_score(matrix_metrics[clf]['fp'],
-                                                               matrix_metrics[clf]['fn'],
-                                                               matrix_metrics[clf]['tp']))
+                    metrics[clf][fs]['f_score'].append(context.f_score(matrix_metrics[clf][fs]['fp'],
+                                                                       matrix_metrics[clf][fs]['fn'],
+                                                                       matrix_metrics[clf][fs]['tp']))
 
-                metrics[clf]['kappa'].append(context.kappa(matrix_metrics[clf]['tn'],
-                                                           matrix_metrics[clf]['fp'],
-                                                           matrix_metrics[clf]['fn'],
-                                                           matrix_metrics[clf]['tp'],
-                                                           matrix_metrics['rand']['tn'],
-                                                           matrix_metrics['rand']['fp'],
-                                                           matrix_metrics['rand']['fn'],
-                                                           matrix_metrics['rand']['tp']))
+                    metrics[clf][fs]['kappa'].append(context.kappa(matrix_metrics[clf][fs]['tn'],
+                                                                   matrix_metrics[clf][fs]['fp'],
+                                                                   matrix_metrics[clf][fs]['fn'],
+                                                                   matrix_metrics[clf][fs]['tp'],
+                                                                   matrix_metrics['rand'][fs]['tn'],
+                                                                   matrix_metrics['rand'][fs]['fp'],
+                                                                   matrix_metrics['rand'][fs]['fn'],
+                                                                   matrix_metrics['rand'][fs]['tp']))
 
-                metrics[clf]['inform'].append(context.inform(matrix_metrics[clf]['tn'],
-                                                             matrix_metrics[clf]['fp'],
-                                                             matrix_metrics[clf]['fn'],
-                                                             matrix_metrics[clf]['tp']))
+                    metrics[clf][fs]['inform'].append(context.inform(matrix_metrics[clf][fs]['tn'],
+                                                                     matrix_metrics[clf][fs]['fp'],
+                                                                     matrix_metrics[clf][fs]['fn'],
+                                                                     matrix_metrics[clf][fs]['tp']))
 
-                metrics[clf]['pct_dth'].append(context.pct_dth(matrix_metrics[clf]['tn'],
-                                                               matrix_metrics[clf]['fp'],
-                                                               matrix_metrics[clf]['fn'],
-                                                               matrix_metrics[clf]['tp']))
-
+                    metrics[clf][fs]['pct_dth'].append(context.pct_dth(matrix_metrics[clf][fs]['tn'],
+                                                                       matrix_metrics[clf][fs]['fp'],
+                                                                       matrix_metrics[clf][fs]['fn'],
+                                                                       matrix_metrics[clf][fs]['tp']))
 
             fold += 1
 
     # print(f'----- {file_name} -----\n')
-    # for clf in classifiers:
-    #     if clf != 'rand':
-    #         print(f'-- {clf} --\n')
-    #         for metric in metrics[clf]:
+    # for clf in metrics:
+    #     for fs in metrics[clf]:
+    #         print(f'-- {clf}-{fs} --\n')
+    #         for metric in metrics[clf][fs]:
     #             print(metric)
-    #             print([round(x, 2) for x in metrics[clf][metric]], '\n')
+    #             print([round(x, 2) for x in metrics[clf][fs][metric]], '\n')
 
     for clf in metrics:
-        for metric in metrics[clf]:
-            with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-                output_file.write(f'{clf}\n')
-                for index, value in enumerate(metrics[clf][metric]):
-                    output_file.write(f'{value} ')
-                output_file.write('\n\n')
+        for fs in metrics[clf]:
+            for metric in metrics[clf][fs]:
+                with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+                    output_file.write(f'{clf}-{fs}\n')
+                    for value in metrics[clf][fs][metric]:
+                        output_file.write(f'{value} ')
+                    output_file.write('\n\n')
+
+    # for clf in metrics:
+    #     for metric in metrics[clf]:
+    #         with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+    #             output_file.write(f'{clf}\n')
+    #             for index, value in enumerate(metrics[clf][metric]):
+    #                 output_file.write(f'{value} ')
+    #             output_file.write('\n\n')
