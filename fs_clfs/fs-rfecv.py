@@ -5,6 +5,7 @@ import sys
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_selection import RFECV
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 from sklearn.naive_bayes import GaussianNB
@@ -86,6 +87,17 @@ for file in context.FILES:
             test_data = unlabeled_data.iloc[test_indices]
             test_labels = labels.iloc[test_indices]
 
+            rfecv_cart = RFECV(DecisionTreeClassifier(random_state=0))
+            rfecv_cart.fit(test_data, test_labels)
+            rfecv_feats = rfecv_cart.get_support(indices=True)
+            print(rfecv_cart.get_support(indices=True))
+
+            rfecv_train_data = train_data.iloc[:, rfecv_feats]
+            rfecv_train_labels = train_labels.iloc[:, rfecv_feats]
+            rfecv_test_data = test_data.iloc[:, rfecv_feats]
+            print('RFECV', list(rfecv_train_data))
+            print('RFECV', list(rfecv_test_data))
+
             # Train the classifiers for the fold
             for clf in cloned_classifiers:
                 cloned_classifiers[clf].fit(train_data, train_labels)
@@ -159,10 +171,10 @@ for file in context.FILES:
     #             print(metric)
     #             print([round(x, 2) for x in metrics[clf][metric]], '\n')
 
-    for clf in metrics:
-        for metric in metrics[clf]:
-            with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-                output_file.write(f'{clf}\n')
-                for index, value in enumerate(metrics[clf][metric]):
-                    output_file.write(f'{value} ')
-                output_file.write('\n\n')
+    # for clf in metrics:
+    #     for metric in metrics[clf]:
+    #         with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+    #             output_file.write(f'{clf}\n')
+    #             for index, value in enumerate(metrics[clf][metric]):
+    #                 output_file.write(f'{value} ')
+    #             output_file.write('\n\n')

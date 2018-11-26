@@ -23,6 +23,8 @@ from skfeature.function.statistical_based import CFS
 from skfeature.function.wrapper import decision_tree_forward as dtf
 from skfeature.function.wrapper import svm_forward as svmf
 
+use_clfs = ['rand', 'nb', 'svm', 'oner', 'cart', 'rf']
+
 for file in context.FILES:
 
     # Retrieve the file name for reporting
@@ -40,18 +42,13 @@ for file in context.FILES:
     classifiers = {'rand': DummyClassifier(strategy='uniform', random_state=0),
                    'oner': DecisionTreeClassifier(max_depth=1, random_state=0),
                    'cart': DecisionTreeClassifier(random_state=0),
-                   'nb': GaussianNB(), 'rf': RandomForestClassifier(random_state=0),
+                   'nb': GaussianNB(),
+                   'rf': RandomForestClassifier(random_state=0),
                    'svm': SVC(random_state=0)}
 
     # Set up a dictionary to record performance metrics for each classifier across runs/folds
     metrics = {'rand':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf':
                         {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
                'oner':
                    {'def':
@@ -117,10 +114,7 @@ for file in context.FILES:
 
             # Clone the classifiers
             cloned_classifiers = {'rand':
-                                      {'def': clone(classifiers['rand']),
-                                       'cfs': clone(classifiers['rand']),
-                                       'dtf': clone(classifiers['rand']),
-                                       'svmf': clone(classifiers['rand'])},
+                                      {'def': clone(classifiers['rand'])},
                                   'oner':
                                       {'def': clone(classifiers['oner']),
                                        'cfs': clone(classifiers['oner']),
@@ -176,18 +170,19 @@ for file in context.FILES:
 
             #Train the classifiers for the fold
             for clf in cloned_classifiers:
-                for fs in cloned_classifiers[clf]:
-                    if fs == 'def':
-                        cloned_classifiers[clf][fs].fit(train_data, train_labels)
-                    elif fs == 'cfs':
-                        cloned_classifiers[clf][fs].fit(cfs_train_data, train_labels)
-                    elif fs == 'dtf':
-                        cloned_classifiers[clf][fs].fit(dtf_train_data, train_labels)
-                    elif fs == 'svmf':
-                        cloned_classifiers[clf][fs].fit(svmf_train_data, train_labels)
+                if clf in use_clfs:
+                    for fs in cloned_classifiers[clf]:
+                        if fs == 'def':
+                            cloned_classifiers[clf][fs].fit(train_data, train_labels)
+                        elif fs == 'cfs':
+                            cloned_classifiers[clf][fs].fit(cfs_train_data, train_labels)
+                        elif fs == 'dtf':
+                            cloned_classifiers[clf][fs].fit(dtf_train_data, train_labels)
+                        elif fs == 'svmf':
+                            cloned_classifiers[clf][fs].fit(svmf_train_data, train_labels)
 
             predictions = {'rand':
-                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                               {'def': None},
                            'oner':
                                {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
                            'cart':
@@ -201,24 +196,19 @@ for file in context.FILES:
 
             # Test the classifiers for the fold
             for clf in predictions:
-                for fs in predictions[clf]:
-                    if fs == 'def':
-                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(test_data)
-                    elif fs == 'cfs':
-                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(cfs_test_data)
-                    elif fs == 'dtf':
-                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(dtf_test_data)
-                    elif fs == 'svmf':
-                        predictions[clf][fs] = cloned_classifiers[clf][fs].predict(svmf_test_data)
+                if clf in use_clfs:
+                    for fs in predictions[clf]:
+                        if fs == 'def':
+                            predictions[clf][fs] = cloned_classifiers[clf][fs].predict(test_data)
+                        elif fs == 'cfs':
+                            predictions[clf][fs] = cloned_classifiers[clf][fs].predict(cfs_test_data)
+                        elif fs == 'dtf':
+                            predictions[clf][fs] = cloned_classifiers[clf][fs].predict(dtf_test_data)
+                        elif fs == 'svmf':
+                            predictions[clf][fs] = cloned_classifiers[clf][fs].predict(svmf_test_data)
 
             matrix_metrics = {'rand':
                                   {'def':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'cfs':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'dtf':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'svmf':
                                        {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'oner':
                                   {'def':
@@ -268,43 +258,45 @@ for file in context.FILES:
 
             # Retrieve the confusion matrix metrics for the classifiers
             for clf in matrix_metrics:
-                for fs in matrix_metrics[clf]:
-                    matrix_metrics[clf][fs]['tn'], \
-                    matrix_metrics[clf][fs]['fp'], \
-                    matrix_metrics[clf][fs]['fn'], \
-                    matrix_metrics[clf][fs]['tp'] = confusion_matrix(test_labels, predictions[clf][fs]).ravel()
+                if clf in use_clfs:
+                    for fs in matrix_metrics[clf]:
+                        matrix_metrics[clf][fs]['tn'], \
+                        matrix_metrics[clf][fs]['fp'], \
+                        matrix_metrics[clf][fs]['fn'], \
+                        matrix_metrics[clf][fs]['tp'] = confusion_matrix(test_labels, predictions[clf][fs]).ravel()
 
             # Calculate the Accuracy, F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
             for clf in metrics:
-                for fs in metrics[clf]:
+                if clf in use_clfs:
+                    for fs in metrics[clf]:
 
-                    metrics[clf][fs]['acc'].append(context.acc(matrix_metrics[clf][fs]['tn'],
-                                                               matrix_metrics[clf][fs]['fp'],
-                                                               matrix_metrics[clf][fs]['fn'],
-                                                               matrix_metrics[clf][fs]['tp']))
-
-                    metrics[clf][fs]['f_score'].append(context.f_score(matrix_metrics[clf][fs]['fp'],
-                                                                       matrix_metrics[clf][fs]['fn'],
-                                                                       matrix_metrics[clf][fs]['tp']))
-
-                    metrics[clf][fs]['kappa'].append(context.kappa(matrix_metrics[clf][fs]['tn'],
+                        metrics[clf][fs]['acc'].append(context.acc(matrix_metrics[clf][fs]['tn'],
                                                                    matrix_metrics[clf][fs]['fp'],
                                                                    matrix_metrics[clf][fs]['fn'],
-                                                                   matrix_metrics[clf][fs]['tp'],
-                                                                   matrix_metrics['rand'][fs]['tn'],
-                                                                   matrix_metrics['rand'][fs]['fp'],
-                                                                   matrix_metrics['rand'][fs]['fn'],
-                                                                   matrix_metrics['rand'][fs]['tp']))
+                                                                   matrix_metrics[clf][fs]['tp']))
 
-                    metrics[clf][fs]['inform'].append(context.inform(matrix_metrics[clf][fs]['tn'],
-                                                                     matrix_metrics[clf][fs]['fp'],
-                                                                     matrix_metrics[clf][fs]['fn'],
-                                                                     matrix_metrics[clf][fs]['tp']))
+                        metrics[clf][fs]['f_score'].append(context.f_score(matrix_metrics[clf][fs]['fp'],
+                                                                           matrix_metrics[clf][fs]['fn'],
+                                                                           matrix_metrics[clf][fs]['tp']))
 
-                    metrics[clf][fs]['pct_dth'].append(context.pct_dth(matrix_metrics[clf][fs]['tn'],
+                        metrics[clf][fs]['kappa'].append(context.kappa(matrix_metrics[clf][fs]['tn'],
                                                                        matrix_metrics[clf][fs]['fp'],
                                                                        matrix_metrics[clf][fs]['fn'],
-                                                                       matrix_metrics[clf][fs]['tp']))
+                                                                       matrix_metrics[clf][fs]['tp'],
+                                                                       matrix_metrics['rand']['def']['tn'],
+                                                                       matrix_metrics['rand']['def']['fp'],
+                                                                       matrix_metrics['rand']['def']['fn'],
+                                                                       matrix_metrics['rand']['def']['tp']))
+
+                        metrics[clf][fs]['inform'].append(context.inform(matrix_metrics[clf][fs]['tn'],
+                                                                         matrix_metrics[clf][fs]['fp'],
+                                                                         matrix_metrics[clf][fs]['fn'],
+                                                                         matrix_metrics[clf][fs]['tp']))
+
+                        metrics[clf][fs]['pct_dth'].append(context.pct_dth(matrix_metrics[clf][fs]['tn'],
+                                                                           matrix_metrics[clf][fs]['fp'],
+                                                                           matrix_metrics[clf][fs]['fn'],
+                                                                           matrix_metrics[clf][fs]['tp']))
 
             fold += 1
 
@@ -317,13 +309,13 @@ for file in context.FILES:
     #             print([round(x, 2) for x in metrics[clf][fs][metric]], '\n')
 
     for clf in metrics:
-        for fs in metrics[clf]:
-            for metric in metrics[clf][fs]:
-                with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-                    output_file.write(f'{clf}-{fs}\n')
-                    for value in metrics[clf][fs][metric]:
-                        output_file.write(f'{value} ')
-                    output_file.write('\n\n')
+            for fs in metrics[clf]:
+                for metric in metrics[clf][fs]:
+                    with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+                        output_file.write(f'{clf}-{fs}\n')
+                        for value in metrics[clf][fs][metric]:
+                            output_file.write(f'{value} ')
+                        output_file.write('\n\n')
 
     # for clf in metrics:
     #     for metric in metrics[clf]:
