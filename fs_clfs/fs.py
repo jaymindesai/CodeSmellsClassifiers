@@ -149,14 +149,15 @@ for file in context.FILES:
             test_data = unlabeled_data.iloc[test_indices]
             test_labels = labels.iloc[test_indices]
 
-            num_feats = int((len(train_labels) - 1) ** 0.5)
-
             print(f'\n----- {file_name}-{run}-{fold} -----')
 
             cfs_feats = CFS.cfs(train_data.values, train_labels.values)
             cfs_train_data = train_data.iloc[:, cfs_feats]
             cfs_test_data = test_data.iloc[:, cfs_feats]
             print('\nCFS', list(cfs_train_data), '\n')
+
+            rows, cols = train_data.shape
+            num_feats = int(cols ** 0.5)
 
             dtf_feats = dtf.decision_tree_forward(train_data.values, train_labels.values, num_feats)
             dtf_train_data = train_data.iloc[:, dtf_feats]

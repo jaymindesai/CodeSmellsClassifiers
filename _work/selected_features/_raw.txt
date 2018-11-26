@@ -1,0 +1,899 @@
+
+----- _data-class-0-0 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'number_protected_visibility_attributes', 'NOM_package', 'NIM_type', 'ATFD_type', 'LOCNAMM_type', 'number_final_static_methods', 'NOMNAMM_package']
+
+DTF ['LOC_package', 'AMW_type', 'NOMNAMM_project', 'num_final_not_static_attributes', 'CBO_type', 'num_not_final_not_static_attributes', 'number_final_static_methods']
+
+SVMF ['NOMNAMM_package', 'number_package_visibility_methods', 'NIM_type', 'AMWNAMM_type', 'number_not_final_static_methods', 'DIT_type', 'num_static_not_final_attributes']
+
+
+----- _data-class-0-1 -----
+
+CFS ['LOC_package', 'LOC_type', 'NOM_package', 'NIM_type', 'AMW_type', 'number_final_static_methods', 'NOC_type', 'NOMNAMM_package']
+
+DTF ['LOC_package', 'NOCS_project', 'num_final_not_static_attributes', 'NOCS_type', 'NOI_package', 'number_abstract_methods', 'number_package_visibility_attributes']
+
+SVMF ['NOCS_package', 'number_package_visibility_attributes', 'WOC_type', 'NOI_project', 'number_package_visibility_methods', 'number_constructor_DefaultConstructor_methods', 'number_protected_visibility_attributes']
+
+
+----- _data-class-0-2 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NIM_type', 'number_final_not_static_methods', 'NOM_package', 'LOCNAMM_type', 'number_protected_visibility_attributes', 'ATFD_type', 'number_final_static_methods']
+
+DTF ['LOC_package', 'NOPK_project', 'number_not_abstract_not_final_methods', 'number_final_not_static_methods', 'NOII_type', 'num_static_attributes', 'number_final_static_methods']
+
+SVMF ['LOC_package', 'number_package_visibility_methods', 'WOC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOI_project', 'NOCS_project', 'number_package_visibility_attributes']
+
+
+----- _data-class-0-3 -----
+
+CFS ['LOC_package', 'LOC_type', 'number_protected_visibility_attributes', 'NIM_type', 'NOM_package', 'LOCNAMM_type', 'NOCS_type', 'NOMNAMM_package', 'AMW_type']
+
+DTF ['NOI_project', 'NOMNAMM_package', 'AMW_type', 'NIM_type', 'number_constructor_DefaultConstructor_methods', 'number_package_visibility_attributes', 'number_abstract_methods']
+
+SVMF ['NOI_project', 'NOII_type', 'NOCS_project', 'WOC_type', 'NOPK_project', 'LOC_project', 'number_not_final_static_methods']
+
+
+----- _data-class-0-4 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NOM_package', 'NIM_type', 'number_protected_visibility_attributes', 'NOMNAMM_package', 'number_final_static_methods', 'ATFD_type', 'LOCNAMM_type']
+
+DTF ['NOMNAMM_package', 'number_standard_design_methods', 'number_final_not_static_methods', 'ATFD_type', 'number_package_visibility_methods', 'CFNAMM_type', 'num_static_not_final_attributes']
+
+SVMF ['NOI_project', 'NOCS_type', 'NOII_type', 'LCOM5_type', 'number_final_not_static_methods', 'NOCS_project', 'NOPK_project']
+
+
+----- _data-class-1-0 -----
+
+CFS ['LOC_type', 'LOC_package', 'ATFD_type', 'NOCS_type', 'NOM_package', 'AMW_type', 'number_constructor_DefaultConstructor_methods', 'LOCNAMM_type', 'number_protected_visibility_attributes']
+
+DTF ['NOI_project', 'number_standard_design_methods', 'NOM_package', 'LOC_package', 'NOMNAMM_project', 'CFNAMM_type', 'NOCS_project']
+
+SVMF ['NOI_project', 'NOI_package', 'NOII_type', 'NOCS_project', 'TCC_type', 'NOPK_project', 'WOC_type']
+
+
+----- _data-class-1-1 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NOM_package', 'NIM_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'number_final_static_methods']
+
+DTF ['NOI_project', 'number_final_not_static_methods', 'NOPK_project', 'LOC_project', 'NOCS_project', 'NOII_type', 'number_constructor_DefaultConstructor_methods']
+
+SVMF ['NOI_project', 'number_private_visibility_attributes', 'number_protected_visibility_methods', 'number_package_visibility_attributes', 'number_final_not_static_methods', 'number_final_static_methods', 'num_static_not_final_attributes']
+
+
+----- _data-class-1-2 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NOM_package', 'NIM_type', 'LOCNAMM_type', 'number_final_static_methods', 'NOCS_type', 'NOMNAMM_package']
+
+DTF ['NOI_project', 'NOII_type', 'number_protected_visibility_attributes', 'NOCS_project', 'NOPK_project', 'num_static_not_final_attributes', 'number_abstract_methods']
+
+SVMF ['NOI_project', 'NOII_type', 'DIT_type', 'number_not_final_static_methods', 'WOC_type', 'number_private_visibility_attributes', 'number_constructor_DefaultConstructor_methods']
+
+
+----- _data-class-1-3 -----
+
+CFS ['LOC_package', 'LOC_type', 'AMW_type', 'NOM_package', 'number_protected_visibility_attributes', 'NIM_type', 'NOMNAMM_package', 'number_final_static_methods', 'LOCNAMM_type', 'ATFD_type', 'number_abstract_methods']
+
+DTF ['NOMNAMM_package', 'LOC_type', 'number_constructor_DefaultConstructor_methods', 'NOPA_type', 'number_abstract_methods', 'num_final_not_static_attributes', 'number_final_not_static_methods']
+
+SVMF ['NOCS_package', 'NIM_type', 'DIT_type', 'WOC_type', 'number_package_visibility_attributes', 'number_constructor_NotDefaultConstructor_methods', 'TCC_type']
+
+
+----- _data-class-1-4 -----
+
+CFS ['NOM_package', 'AMW_type', 'LOC_package', 'NIM_type', 'LOC_type', 'number_final_static_methods', 'NOMNAMM_package', 'ATFD_type']
+
+DTF ['NOMNAMM_package', 'NOMNAMM_project', 'CFNAMM_type', 'number_final_static_methods', 'FANOUT_type', 'number_protected_visibility_attributes', 'number_private_visibility_methods']
+
+SVMF ['LOC_package', 'number_package_visibility_methods', 'number_protected_visibility_attributes', 'number_constructor_NotDefaultConstructor_methods', 'NOI_project', 'NOCS_project', 'NOPK_project']
+
+
+----- _data-class-2-0 -----
+
+CFS ['LOC_package', 'LOC_type', 'number_protected_visibility_attributes', 'NOM_package', 'NIM_type', 'AMW_type', 'NOMNAMM_package', 'number_final_static_methods', 'LOCNAMM_type']
+
+DTF ['LOC_package', 'LOC_project', 'number_final_static_methods', 'number_protected_visibility_methods', 'NOM_package', 'number_package_visibility_methods', 'DIT_type']
+
+SVMF ['RFC_type', 'num_static_attributes', 'NOI_package', 'number_package_visibility_methods', 'NOPA_type', 'NOMNAMM_type', 'number_not_final_static_methods']
+
+
+----- _data-class-2-1 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'number_final_not_static_methods', 'LOCNAMM_type', 'NOM_package', 'NIM_type', 'ATFD_type', 'number_final_static_methods', 'NOMNAMM_package', 'NOC_type']
+
+DTF ['LOC_package', 'NOAM_type', 'number_static_methods', 'NOPK_project', 'num_final_attributes', 'CFNAMM_type', 'number_final_static_methods']
+
+SVMF ['LOCNAMM_type', 'CBO_type', 'TCC_type', 'number_private_visibility_methods', 'number_constructor_NotDefaultConstructor_methods', 'number_package_visibility_methods', 'num_final_not_static_attributes']
+
+
+----- _data-class-2-2 -----
+
+CFS ['LOC_type', 'LOC_package', 'NOCS_type', 'NOM_package', 'ATFD_type', 'NIM_type', 'LOCNAMM_type', 'number_protected_visibility_attributes', 'number_package_visibility_methods']
+
+DTF ['NOI_project', 'NOII_type', 'NOCS_type', 'number_package_visibility_attributes', 'NOM_project', 'number_abstract_methods', 'NOCS_project']
+
+SVMF ['NOI_project', 'CBO_type', 'TCC_type', 'number_not_final_static_methods', 'number_package_visibility_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes']
+
+
+----- _data-class-2-3 -----
+
+CFS ['LOC_package', 'AMW_type', 'NOM_package', 'LOC_type', 'NIM_type', 'number_protected_visibility_attributes', 'NOMNAMM_package']
+
+DTF ['LOC_package', 'number_package_visibility_methods', 'NOMNAMM_project', 'number_abstract_methods', 'AMW_type', 'number_final_static_methods', 'NMO_type']
+
+SVMF ['NOMNAMM_package', 'number_package_visibility_methods', 'NMO_type', 'number_constructor_DefaultConstructor_methods', 'DIT_type', 'number_not_final_static_methods', 'NOII_type']
+
+
+----- _data-class-2-4 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NIM_type', 'NOM_package', 'NOCS_type', 'LOCNAMM_type']
+
+DTF ['NOPK_project', 'NOII_type', 'number_private_visibility_methods', 'CBO_type', 'DIT_type', 'FANOUT_type', 'NOC_type']
+
+SVMF ['NOPK_project', 'LCOM5_type', 'num_not_final_not_static_attributes', 'number_constructor_NotDefaultConstructor_methods', 'number_package_visibility_methods', 'WOC_type', 'NOC_type']
+
+
+----- _data-class-3-0 -----
+
+CFS ['LOC_package', 'LOC_type', 'NIM_type', 'NOM_package', 'number_protected_visibility_attributes', 'AMW_type', 'NOMNAMM_package', 'LOCNAMM_type']
+
+DTF ['NOPK_project', 'number_standard_design_methods', 'num_static_not_final_attributes', 'number_final_not_static_methods', 'number_not_final_static_methods', 'num_static_attributes', 'DIT_type']
+
+SVMF ['NOPK_project', 'num_final_static_attributes', 'WOC_type', 'NMO_type', 'NOII_type', 'TCC_type', 'num_static_not_final_attributes']
+
+
+----- _data-class-3-1 -----
+
+CFS ['LOC_type', 'LOCNAMM_type', 'ATFD_type', 'LOC_package', 'NIM_type', 'number_protected_visibility_attributes', 'NOM_package', 'NOCS_type', 'number_final_not_static_methods', 'AMW_type', 'number_final_static_methods']
+
+DTF ['LOC_package', 'number_package_visibility_methods', 'number_not_final_static_methods', 'NOCS_project', 'number_static_methods', 'NOII_type', 'number_package_visibility_attributes']
+
+SVMF ['WMCNAMM_type', 'number_protected_visibility_methods', 'num_static_not_final_attributes', 'number_protected_visibility_attributes', 'NOMNAMM_package', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods']
+
+
+----- _data-class-3-2 -----
+
+CFS ['LOC_package', 'LOC_type', 'number_protected_visibility_attributes', 'NIM_type', 'NOM_package', 'AMW_type', 'NOMNAMM_package', 'number_final_static_methods', 'num_final_not_static_attributes']
+
+DTF ['CBO_type', 'num_final_attributes', 'num_final_not_static_attributes', 'number_package_visibility_methods', 'number_final_not_static_methods', 'NOC_type', 'number_final_static_methods']
+
+SVMF ['CBO_type', 'NOAM_type', 'RFC_type', 'number_package_visibility_methods', 'number_standard_design_methods', 'number_not_final_not_static_methods', 'NOII_type']
+
+
+----- _data-class-3-3 -----
+
+CFS ['LOC_package', 'AMW_type', 'NOM_package', 'LOC_type', 'NIM_type', 'number_final_static_methods', 'NOMNAMM_package', 'NOC_type']
+
+DTF ['LOC_package', 'NIM_type', 'num_static_not_final_attributes', 'LOC_project', 'NOI_package', 'NOMNAMM_project', 'CFNAMM_type']
+
+SVMF ['NOPK_project', 'NOI_package', 'number_private_visibility_attributes', 'NOPA_type', 'number_constructor_DefaultConstructor_methods', 'NOII_type', 'NOI_project']
+
+
+----- _data-class-3-4 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'ATFD_type', 'LOCNAMM_type', 'NOM_package', 'NOCS_type', 'number_final_static_methods', 'NIM_type', 'NOMNAMM_package', 'number_protected_visibility_attributes']
+
+DTF ['NOPK_project', 'number_package_visibility_methods', 'number_final_not_static_methods', 'NOPA_type', 'number_final_static_methods', 'number_abstract_methods', 'number_package_visibility_attributes']
+
+SVMF ['NOPK_project', 'number_package_visibility_methods', 'NOI_project', 'number_final_not_static_methods', 'number_constructor_DefaultConstructor_methods', 'WOC_type', 'NOII_type']
+
+
+----- _data-class-4-0 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NIM_type', 'NOM_package', 'number_protected_visibility_attributes', 'NOCS_type', 'LOCNAMM_type', 'NOC_type', 'ATFD_type']
+
+DTF ['NOMNAMM_package', 'number_standard_design_methods', 'AMW_type', 'number_package_visibility_methods', 'DIT_type', 'NOI_project', 'NMO_type']
+
+SVMF ['LOC_package', 'number_protected_visibility_attributes', 'NOI_project', 'number_constructor_NotDefaultConstructor_methods', 'NOCS_project', 'NOPK_project', 'LOC_project']
+
+
+----- _data-class-4-1 -----
+
+CFS ['LOC_type', 'NOM_package', 'AMW_type', 'LOC_package', 'NIM_type', 'number_final_not_static_methods', 'LOCNAMM_type', 'num_final_not_static_attributes', 'ATFD_type', 'number_final_static_methods']
+
+DTF ['NOI_package', 'NOCS_project', 'number_package_visibility_attributes', 'LOC_project', 'NOMNAMM_project', 'number_package_visibility_methods', 'NOPK_project']
+
+SVMF ['LOCNAMM_type', 'number_package_visibility_methods', 'number_protected_visibility_methods', 'number_constructor_NotDefaultConstructor_methods', 'number_not_final_static_methods', 'num_static_not_final_attributes', 'number_package_visibility_attributes']
+
+
+----- _data-class-4-2 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NOM_package', 'NIM_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'NOCS_type', 'number_final_static_methods', 'ATFD_type']
+
+DTF ['NOI_project', 'CBO_type', 'number_standard_design_methods', 'NOCS_project', 'number_abstract_methods', 'LOC_project', 'FANOUT_type']
+
+SVMF ['NOI_project', 'number_package_visibility_methods', 'number_not_final_static_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'number_static_methods', 'WOC_type']
+
+
+----- _data-class-4-3 -----
+
+CFS ['LOC_package', 'NOM_package', 'NIM_type', 'NOMNAMM_package', 'number_protected_visibility_attributes', 'LOC_type', 'LOCNAMM_type']
+
+DTF ['NOPK_project', 'NOMNAMM_package', 'CFNAMM_type', 'AMW_type', 'NIM_type', 'num_static_not_final_attributes', 'number_package_visibility_attributes']
+
+SVMF ['NOPK_project', 'LCOM5_type', 'number_not_final_static_methods', 'NOPA_type', 'number_constructor_NotDefaultConstructor_methods', 'DIT_type', 'number_constructor_DefaultConstructor_methods']
+
+
+----- _data-class-4-4 -----
+
+CFS ['LOC_type', 'LOC_package', 'AMW_type', 'NOM_package', 'NIM_type', 'LOCNAMM_type', 'number_final_static_methods']
+
+DTF ['NOI_project', 'NOII_type', 'number_final_methods', 'NOM_package', 'number_private_visibility_methods', 'number_not_final_static_methods', 'number_final_not_static_methods']
+
+SVMF ['RFC_type', 'num_static_attributes', 'NMO_type', 'CBO_type', 'number_not_final_not_static_methods', 'number_not_final_static_methods', 'DIT_type']
+
+
+----- _feature-envy-0-0 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'LAA_method', 'number_package_visibility_attributes', 'FANOUT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'LOC_type']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'CBO_type']
+
+
+----- _feature-envy-0-1 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'LAA_method', 'number_package_visibility_attributes', 'MAXNESTING_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'number_constructor_NotDefaultConstructor_methods', 'CDISP_method', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method', 'NOAM_type']
+
+
+----- _feature-envy-0-2 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MeMCL_method', 'number_package_visibility_attributes', 'NIM_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'NOPK_project', 'NOI_project', 'NOCS_project']
+
+
+----- _feature-envy-0-3 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'MAXNESTING_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'MaMCL_method', 'number_constructor_DefaultConstructor_methods', 'NOAM_type', 'NOI_project']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-0-4 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MaMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'FANOUT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'NOP_method']
+
+
+----- _feature-envy-1-0 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'number_package_visibility_attributes', 'FANOUT_method', 'NOC_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'LOC_type']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-1-1 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MeMCL_method', 'number_package_visibility_attributes', 'MAXNESTING_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-1-2 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MaMCL_method', 'number_package_visibility_attributes', 'NIM_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'number_final_static_methods', 'number_abstract_methods', 'NOAM_type', 'NOI_project']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-1-3 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'number_package_visibility_attributes', 'FANOUT_method', 'LAA_method']
+
+DTF ['ATFD_method', 'LOC_package', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-1-4 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'FANOUT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'CDISP_method', 'NOAM_type', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-2-0 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MeMCL_method', 'NOC_type', 'number_package_visibility_attributes']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'number_constructor_NotDefaultConstructor_methods', 'CDISP_method', 'number_final_methods', 'NOI_project', 'NOCS_project', 'NOPK_project', 'LCOM5_type']
+
+
+----- _feature-envy-2-1 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MaMCL_method', 'number_package_visibility_attributes', 'FANOUT_method', 'NOC_type']
+
+DTF ['ATFD_method', 'LOC_package', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'FDP_method', 'MaMCL_method']
+
+
+----- _feature-envy-2-2 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MeMCL_method', 'number_package_visibility_attributes', 'FANOUT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-2-3 -----
+
+CFS ['FDP_method', 'ATFD_method', 'LAA_method', 'MeMCL_method', 'number_package_visibility_attributes', 'NIM_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'number_abstract_methods', 'NOAM_type', 'NOI_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'NOPK_project', 'LCOM5_type', 'NOP_method']
+
+
+----- _feature-envy-2-4 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'number_package_visibility_attributes', 'MAXNESTING_method', 'LAA_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'number_abstract_methods', 'NOAM_type', 'NOI_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_final_methods', 'MAXNESTING_method', 'LCOM5_type', 'MaMCL_method', 'number_constructor_NotDefaultConstructor_methods']
+
+
+----- _feature-envy-3-0 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'MaMCL_method', 'NIM_type', 'num_final_not_static_attributes']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'NOI_project', 'NOCS_project', 'NOPK_project']
+
+
+----- _feature-envy-3-1 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MAXNESTING_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods', 'number_public_visibility_methods']
+
+SVMF ['ATFD_method', 'NOII_type', 'CDISP_method', 'NOAM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOCS_project', 'NOI_project', 'number_final_methods']
+
+
+----- _feature-envy-3-2 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'CINT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'number_constructor_NotDefaultConstructor_methods', 'CDISP_method', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method', 'NOAM_type']
+
+
+----- _feature-envy-3-3 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'NOC_type']
+
+DTF ['ATFD_method', 'FDP_method', 'CDISP_method', 'ATLD_method', 'number_constructor_DefaultConstructor_methods', 'LOC_package', 'NOAM_type', 'NOI_project']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'FDP_method', 'number_final_methods', 'LCOM5_type', 'NOPK_project']
+
+
+----- _feature-envy-3-4 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'number_package_visibility_attributes', 'FANOUT_method', 'NIM_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'number_abstract_methods', 'NOAM_type', 'NOI_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'NOPK_project', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-4-0 -----
+
+CFS ['ATFD_method', 'FDP_method', 'LAA_method', 'num_final_not_static_attributes', 'MeMCL_method', 'number_package_visibility_attributes']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-4-1 -----
+
+CFS ['ATFD_method', 'FDP_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'CINT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-4-2 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MeMCL_method', 'number_package_visibility_attributes', 'LAA_method', 'FANOUT_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods', 'number_public_visibility_methods']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'FDP_method']
+
+
+----- _feature-envy-4-3 -----
+
+CFS ['FDP_method', 'ATFD_method', 'NOC_type', 'MeMCL_method', 'LAA_method', 'number_package_visibility_attributes', 'FANOUT_method', 'NIM_type']
+
+DTF ['ATFD_method', 'CDISP_method', 'LOC_package', 'ATLD_method', 'number_final_static_methods', 'number_abstract_methods', 'NOAM_type', 'NOI_project']
+
+SVMF ['ATFD_method', 'NOAM_type', 'CDISP_method', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _feature-envy-4-4 -----
+
+CFS ['FDP_method', 'ATFD_method', 'MaMCL_method', 'FANOUT_method', 'number_package_visibility_attributes', 'LAA_method']
+
+DTF ['ATFD_method', 'CDISP_method', 'ATLD_method', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_method', 'CDISP_method', 'number_package_visibility_methods', 'number_final_methods', 'number_constructor_NotDefaultConstructor_methods', 'FDP_method', 'LCOM5_type', 'MaMCL_method']
+
+
+----- _god-class-0-0 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'number_not_final_static_methods', 'NOCS_type', 'CBO_type', 'CFNAMM_type', 'num_final_not_static_attributes', 'NOMNAMM_type', 'number_static_methods', 'AMW_type', 'AMWNAMM_type']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['number_standard_design_methods', 'CBO_type', 'TCC_type', 'number_final_not_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'ATFD_type']
+
+
+----- _god-class-0-1 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'NOMNAMM_type', 'NOCS_type', 'number_constructor_DefaultConstructor_methods', 'CBO_type', 'number_static_methods', 'number_private_visibility_methods', 'CFNAMM_type', 'number_standard_design_methods', 'num_final_not_static_attributes', 'AMW_type']
+
+DTF ['WMC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['WMCNAMM_type', 'num_static_not_final_attributes', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'CBO_type', 'number_not_final_static_methods']
+
+
+----- _god-class-0-2 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'NOCS_type', 'CBO_type', 'NOMNAMM_type', 'CFNAMM_type']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods', 'number_abstract_methods']
+
+SVMF ['ATFD_type', 'num_final_not_static_attributes', 'number_standard_design_methods', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'DIT_type', 'number_not_final_static_methods']
+
+
+----- _god-class-0-3 -----
+
+CFS ['AMW_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'ATFD_type', 'number_standard_design_methods', 'num_final_not_static_attributes', 'CFNAMM_type', 'NOCS_type']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NMO_type', 'NOCS_project', 'CFNAMM_type']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'num_static_not_final_attributes', 'TCC_type', 'WOC_type']
+
+
+----- _god-class-0-4 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'CFNAMM_type', 'NOCS_type', 'CBO_type', 'number_static_methods', 'NOMNAMM_type']
+
+DTF ['ATFD_type', 'LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'number_abstract_methods', 'num_static_attributes', 'number_protected_visibility_methods']
+
+SVMF ['ATFD_type', 'NOMNAMM_type', 'num_static_not_final_attributes', 'number_not_final_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type']
+
+
+----- _god-class-1-0 -----
+
+CFS ['FANOUT_type', 'number_standard_design_methods', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'CFNAMM_type', 'number_static_methods', 'NOMNAMM_type', 'num_final_not_static_attributes', 'CBO_type', 'AMW_type', 'num_final_static_attributes', 'AMWNAMM_type']
+
+DTF ['WMCNAMM_type', 'LOC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type']
+
+SVMF ['CFNAMM_type', 'NOII_type', 'number_constructor_DefaultConstructor_methods', 'ATFD_type', 'num_static_not_final_attributes', 'TCC_type', 'NOCS_type']
+
+
+----- _god-class-1-1 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'number_not_final_static_methods', 'NOCS_type', 'CBO_type', 'NOMNAMM_type']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'CFNAMM_type', 'CBO_type', 'NOCS_project']
+
+SVMF ['ATFD_type', 'num_final_not_static_attributes', 'NOC_type', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'number_not_final_static_methods', 'NOCS_type']
+
+
+----- _god-class-1-2 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'CFNAMM_type', 'number_standard_design_methods', 'NOCS_type', 'CBO_type', 'number_private_visibility_methods', 'NOMNAMM_type', 'num_final_not_static_attributes', 'number_static_methods']
+
+DTF ['WMCNAMM_type', 'LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'ATFD_type', 'WMC_type', 'NOI_project']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'DIT_type', 'num_static_attributes']
+
+
+----- _god-class-1-3 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'CFNAMM_type', 'CBO_type', 'NOCS_type', 'number_standard_design_methods', 'AMWNAMM_type']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['FANOUT_type', 'number_final_not_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'number_not_final_static_methods', 'DIT_type']
+
+
+----- _god-class-1-4 -----
+
+CFS ['ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'FANOUT_type', 'NOCS_type', 'NOMNAMM_type', 'number_static_methods', 'CFNAMM_type', 'number_final_not_static_methods', 'CBO_type', 'AMWNAMM_type']
+
+DTF ['ATFD_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOCS_project', 'NOI_project', 'NOPK_project', 'LOC_project']
+
+SVMF ['ATFD_type', 'NOMNAMM_type', 'number_constructor_DefaultConstructor_methods', 'num_static_not_final_attributes', 'NOCS_type', 'TCC_type', 'WOC_type']
+
+
+----- _god-class-2-0 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'CBO_type', 'number_standard_design_methods', 'NOCS_type', 'CFNAMM_type']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'num_static_not_final_attributes', 'number_not_final_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'TCC_type', 'DIT_type', 'number_constructor_DefaultConstructor_methods']
+
+
+----- _god-class-2-1 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'CFNAMM_type', 'NOCS_type', 'NOMNAMM_type', 'CBO_type', 'number_static_methods']
+
+DTF ['ATFD_type', 'CFNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'WOC_type']
+
+
+----- _god-class-2-2 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'number_static_methods', 'CFNAMM_type', 'num_final_not_static_attributes', 'NOMNAMM_type', 'AMW_type', 'number_not_final_static_methods', 'CBO_type', 'AMWNAMM_type']
+
+DTF ['WMCNAMM_type', 'LOC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type']
+
+SVMF ['number_standard_design_methods', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'NOCS_type', 'TCC_type']
+
+
+----- _god-class-2-3 -----
+
+CFS ['CFNAMM_type', 'ATFD_type', 'NOCS_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'NOMNAMM_type', 'CBO_type', 'number_final_methods', 'number_not_final_static_methods', 'AMW_type', 'num_final_not_static_attributes', 'AMWNAMM_type']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods', 'ATFD_type']
+
+SVMF ['NOMNAMM_type', 'NOCS_type', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'ATFD_type']
+
+
+----- _god-class-2-4 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'CFNAMM_type', 'NOCS_type', 'number_not_final_static_methods', 'NOMNAMM_type', 'CBO_type', 'number_private_visibility_methods', 'num_final_not_static_attributes', 'AMWNAMM_type']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NMO_type', 'NOCS_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'number_not_final_static_methods', 'number_protected_visibility_methods', 'WOC_type', 'DIT_type', 'TCC_type', 'num_final_not_static_attributes']
+
+
+----- _god-class-3-0 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'CBO_type', 'NOCS_type', 'NOMNAMM_type', 'CFNAMM_type', 'number_static_methods', 'number_protected_visibility_methods', 'AMW_type']
+
+DTF ['ATFD_type', 'LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'number_abstract_methods', 'num_static_attributes', 'number_protected_visibility_methods']
+
+SVMF ['ATFD_type', 'number_not_final_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'NOPK_project', 'NMO_type', 'NOI_project', 'NOCS_project']
+
+
+----- _god-class-3-1 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'NOMNAMM_type', 'CBO_type', 'CFNAMM_type', 'num_final_not_static_attributes', 'AMW_type']
+
+DTF ['WMCNAMM_type', 'WMC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'number_not_final_not_static_methods', 'NOI_project', 'number_abstract_methods']
+
+SVMF ['number_standard_design_methods', 'ATFD_type', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'WOC_type', 'DIT_type']
+
+
+----- _god-class-3-2 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'CFNAMM_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'NOCS_type', 'NOMNAMM_type', 'CBO_type', 'num_final_not_static_attributes', 'number_static_methods']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['WMCNAMM_type', 'DIT_type', 'num_static_not_final_attributes', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'NOCS_type']
+
+
+----- _god-class-3-3 -----
+
+CFS ['ATFD_type', 'number_not_final_static_methods', 'FANOUT_type', 'NOCS_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'number_static_methods', 'num_final_not_static_attributes', 'NOMNAMM_type', 'CBO_type', 'number_final_methods']
+
+DTF ['WMCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'DIT_type', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'num_static_not_final_attributes', 'NOI_package', 'WOC_type']
+
+
+----- _god-class-3-4 -----
+
+CFS ['CFNAMM_type', 'number_constructor_DefaultConstructor_methods', 'ATFD_type', 'FANOUT_type', 'number_standard_design_methods', 'num_final_not_static_attributes', 'CBO_type', 'number_static_methods']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'number_not_final_not_static_methods', 'NOAM_type', 'CBO_type', 'NOI_project', 'NOCS_project']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'num_static_not_final_attributes', 'WOC_type', 'number_final_not_static_methods']
+
+
+----- _god-class-4-0 -----
+
+CFS ['FANOUT_type', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'CFNAMM_type', 'CBO_type', 'NOCS_type', 'number_static_methods']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NMO_type', 'NOCS_project', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'num_static_not_final_attributes', 'WOC_type', 'number_constructor_NotDefaultConstructor_methods']
+
+
+----- _god-class-4-1 -----
+
+CFS ['AMW_type', 'FANOUT_type', 'ATFD_type', 'number_constructor_DefaultConstructor_methods', 'number_standard_design_methods', 'number_static_methods', 'NOCS_type', 'NOMNAMM_type', 'CFNAMM_type', 'num_final_not_static_attributes', 'CBO_type', 'number_not_final_static_methods', 'AMWNAMM_type', 'num_final_static_attributes']
+
+DTF ['WMC_type', 'CBO_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'number_not_final_not_static_methods']
+
+SVMF ['WMCNAMM_type', 'WOC_type', 'number_constructor_NotDefaultConstructor_methods', 'number_constructor_DefaultConstructor_methods', 'NOCS_type', 'TCC_type', 'NOPK_project']
+
+
+----- _god-class-4-2 -----
+
+CFS ['CFNAMM_type', 'ATFD_type', 'NOCS_type', 'number_constructor_DefaultConstructor_methods', 'FANOUT_type', 'NOMNAMM_type', 'number_final_methods', 'number_standard_design_methods', 'num_final_not_static_attributes', 'CBO_type']
+
+DTF ['ATFD_type', 'LOC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'number_private_visibility_methods', 'NOI_project', 'NOCS_project']
+
+SVMF ['ATFD_type', 'number_standard_design_methods', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'WOC_type']
+
+
+----- _god-class-4-3 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_constructor_DefaultConstructor_methods', 'CBO_type', 'NOCS_type', 'NOMNAMM_type', 'number_standard_design_methods', 'number_static_methods', 'num_final_not_static_attributes']
+
+DTF ['LOCNAMM_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'NOI_project', 'NOCS_project', 'CFNAMM_type', 'number_not_final_not_static_methods']
+
+SVMF ['ATFD_type', 'number_not_final_static_methods', 'number_constructor_NotDefaultConstructor_methods', 'DIT_type', 'number_constructor_DefaultConstructor_methods', 'TCC_type', 'number_static_methods']
+
+
+----- _god-class-4-4 -----
+
+CFS ['ATFD_type', 'FANOUT_type', 'number_standard_design_methods', 'number_constructor_DefaultConstructor_methods', 'CFNAMM_type', 'NOCS_type', 'number_static_methods', 'AMW_type', 'NOMNAMM_type', 'number_protected_visibility_methods', 'number_private_visibility_methods']
+
+DTF ['ATFD_type', 'WOC_type', 'number_constructor_NotDefaultConstructor_methods', 'NOAM_type', 'CBO_type', 'number_public_visibility_methods', 'LOC_package']
+
+SVMF ['ATFD_type', 'number_constructor_DefaultConstructor_methods', 'DIT_type', 'TCC_type', 'num_static_not_final_attributes', 'WOC_type', 'NOCS_type']
+
+
+----- _long-method-0-0 -----
+
+CFS ['WMC_type', 'number_protected_visibility_attributes', 'LOC_type', 'NIM_type', 'NMCS_method', 'NOAV_method', 'number_package_visibility_attributes', 'LOCNAMM_type', 'NOC_type', 'RFC_type']
+
+DTF ['number_standard_design_methods', 'NIM_type', 'DIT_type', 'number_package_visibility_attributes', 'NOC_type', 'number_abstract_methods', 'MAXNESTING_method', 'number_not_final_static_methods']
+
+SVMF ['FANOUT_method', 'NOC_type', 'CM_method', 'FDP_method', 'WOC_type', 'ATFD_method', 'CDISP_method', 'TCC_type']
+
+
+----- _long-method-0-1 -----
+
+CFS ['WMC_type', 'LOC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'NOC_type', 'RFC_type', 'TCC_type', 'number_final_static_methods', 'LCOM5_type']
+
+DTF ['MAXNESTING_method', 'number_constructor_NotDefaultConstructor_methods', 'number_protected_visibility_attributes', 'NOP_method', 'NOC_type', 'number_final_methods', 'MaMCL_method', 'NIM_type']
+
+SVMF ['MAXNESTING_method', 'number_final_methods', 'CDISP_method', 'MaMCL_method', 'NOPK_project', 'NOII_type', 'NOCS_type', 'LCOM5_type']
+
+
+----- _long-method-0-2 -----
+
+CFS ['LOC_type', 'WMC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'NOC_type', 'NIM_type', 'NOAV_method', 'RFC_type']
+
+DTF ['number_not_final_not_static_methods', 'MaMCL_method', 'number_final_methods', 'number_final_not_static_methods', 'number_abstract_methods', 'number_final_static_methods', 'NOCS_package', 'AMWNAMM_type']
+
+SVMF ['LOC_type', 'CDISP_method', 'number_package_visibility_methods', 'number_final_methods', 'LAA_method', 'NMO_type', 'NOP_method', 'CC_method']
+
+
+----- _long-method-0-3 -----
+
+CFS ['LOCNAMM_type', 'number_protected_visibility_attributes', 'WMC_type', 'LOC_type', 'NOAV_method', 'NMCS_method', 'NOPA_type', 'num_final_not_static_attributes', 'NOM_package', 'number_constructor_DefaultConstructor_methods', 'CDISP_method', 'number_final_static_methods']
+
+DTF ['WMC_type', 'number_final_methods', 'number_constructor_DefaultConstructor_methods', 'number_final_static_methods', 'NMCS_method', 'number_not_final_static_methods', 'MaMCL_method', 'number_final_not_static_methods']
+
+SVMF ['NOM_package', 'NOII_type', 'number_constructor_NotDefaultConstructor_methods', 'number_final_methods', 'LCOM5_type', 'MaMCL_method', 'CDISP_method', 'LAA_method']
+
+
+----- _long-method-0-4 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'WMC_type', 'LOCNAMM_type', 'NOC_type', 'TCC_type', 'number_final_static_methods', 'WMCNAMM_type']
+
+DTF ['CDISP_method', 'NOC_type', 'number_final_not_static_methods', 'num_final_not_static_attributes', 'NOAV_method', 'num_final_attributes', 'CM_method', 'LOC_type']
+
+SVMF ['number_not_final_not_static_methods', 'DIT_type', 'NMCS_method', 'CDISP_method', 'LAA_method', 'number_final_not_static_methods', 'MaMCL_method', 'TCC_type']
+
+
+----- _long-method-1-0 -----
+
+CFS ['LOC_type', 'WMC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'NMCS_method', 'number_package_visibility_attributes', 'RFC_type', 'number_final_methods', 'WMCNAMM_type', 'NOC_type', 'TCC_type', 'NIM_type', 'AMW_type', 'number_final_static_methods']
+
+DTF ['FANOUT_type', 'NOC_type', 'MaMCL_method', 'MeMCL_method', 'NMCS_method', 'number_final_not_static_methods', 'number_final_static_methods', 'number_final_methods']
+
+SVMF ['ATFD_type', 'LCOM5_type', 'CM_method', 'NOPA_type', 'CC_method', 'FANOUT_method', 'CDISP_method', 'LAA_method']
+
+
+----- _long-method-1-1 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'WMC_type', 'CDISP_method', 'num_final_not_static_attributes', 'NOC_type', 'NOAV_method', 'TCC_type', 'number_constructor_DefaultConstructor_methods', 'number_final_static_methods', 'WMCNAMM_type', 'NIM_type', 'NOM_package', 'MaMCL_method']
+
+DTF ['TCC_type', 'NOM_type', 'number_final_not_static_methods', 'number_abstract_methods', 'number_final_methods', 'number_final_static_methods', 'number_not_final_static_methods', 'num_static_not_final_attributes']
+
+SVMF ['MAXNESTING_method', 'LAA_method', 'CDISP_method', 'NOP_method', 'number_final_methods', 'LCOM5_type', 'number_constructor_DefaultConstructor_methods', 'number_final_not_static_methods']
+
+
+----- _long-method-1-2 -----
+
+CFS ['WMC_type', 'LOC_type', 'number_protected_visibility_attributes', 'NIM_type', 'LOCNAMM_type', 'NOC_type', 'RFC_type', 'number_final_static_methods', 'TCC_type']
+
+DTF ['RFC_type', 'num_static_not_final_attributes', 'WMC_type', 'number_final_methods', 'CLNAMM_method', 'NOPA_type', 'CYCLO_method', 'CFNAMM_type']
+
+SVMF ['NOCS_package', 'NOII_type', 'number_constructor_NotDefaultConstructor_methods', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'number_package_visibility_attributes', 'WOC_type', 'LCOM5_type']
+
+
+----- _long-method-1-3 -----
+
+CFS ['WMC_type', 'number_protected_visibility_attributes', 'LOC_type', 'NOAV_method', 'LOCNAMM_type', 'NOC_type', 'CYCLO_method', 'number_final_static_methods', 'TCC_type', 'RFC_type', 'NIM_type']
+
+DTF ['CYCLO_method', 'NOP_method', 'number_package_visibility_attributes', 'number_abstract_methods', 'TCC_type', 'number_protected_visibility_methods', 'number_final_methods', 'MAXNESTING_method']
+
+SVMF ['NOP_method', 'ATLD_method', 'NOI_package', 'NMCS_method', 'number_final_methods', 'MaMCL_method', 'number_final_not_static_methods', 'LCOM5_type']
+
+
+----- _long-method-1-4 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'WMC_type', 'NOAV_method', 'LOCNAMM_type', 'NMCS_method', 'NOC_type', 'RFC_type']
+
+DTF ['num_not_final_not_static_attributes', 'number_constructor_DefaultConstructor_methods', 'number_protected_visibility_methods', 'number_final_methods', 'num_static_not_final_attributes', 'number_final_not_static_methods', 'number_final_static_methods', 'number_abstract_methods']
+
+SVMF ['AMWNAMM_type', 'number_package_visibility_methods', 'num_static_not_final_attributes', 'number_constructor_NotDefaultConstructor_methods', 'NOC_type', 'TCC_type', 'number_final_static_methods', 'num_static_attributes']
+
+
+----- _long-method-2-0 -----
+
+CFS ['LOCNAMM_type', 'WMC_type', 'number_protected_visibility_attributes', 'LOC_type', 'NMCS_method', 'TCC_type', 'NOC_type', 'CYCLO_method', 'number_final_methods']
+
+DTF ['CFNAMM_method', 'NOC_type', 'number_constructor_NotDefaultConstructor_methods', 'num_final_static_attributes', 'number_protected_visibility_attributes', 'number_final_methods', 'number_final_not_static_methods', 'CM_method']
+
+SVMF ['CFNAMM_method', 'NOC_type', 'number_protected_visibility_attributes', 'WOC_type', 'MaMCL_method', 'CDISP_method', 'number_final_methods', 'MeMCL_method']
+
+
+----- _long-method-2-1 -----
+
+CFS ['LOCNAMM_type', 'LOC_type', 'number_protected_visibility_attributes', 'number_constructor_DefaultConstructor_methods', 'WMC_type', 'NOAV_method', 'num_final_not_static_attributes', 'RFC_type', 'NOC_type', 'NIM_type', 'WMCNAMM_type', 'CYCLO_method', 'number_final_static_methods']
+
+DTF ['TCC_type', 'number_constructor_DefaultConstructor_methods', 'NOMNAMM_package', 'number_package_visibility_methods', 'LOC_type', 'NOM_package', 'NOCS_type', 'NOMNAMM_type']
+
+SVMF ['RFC_type', 'NOAM_type', 'LCOM5_type', 'AMWNAMM_type', 'LAA_method', 'NOII_type', 'MAXNESTING_method', 'CM_method']
+
+
+----- _long-method-2-2 -----
+
+CFS ['WMC_type', 'NOC_type', 'LOCNAMM_type', 'number_protected_visibility_attributes', 'NIM_type', 'LOC_type', 'number_final_static_methods', 'WMCNAMM_type', 'CDISP_method', 'TCC_type']
+
+DTF ['WMC_type', 'NOAM_type', 'number_protected_visibility_attributes', 'number_final_methods', 'number_constructor_DefaultConstructor_methods', 'NOII_type', 'LOCNAMM_type', 'num_static_not_final_attributes']
+
+SVMF ['LOCNAMM_type', 'CM_method', 'CDISP_method', 'AMWNAMM_type', 'number_package_visibility_methods', 'ATLD_method', 'MAXNESTING_method', 'number_constructor_NotDefaultConstructor_methods']
+
+
+----- _long-method-2-3 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'WMC_type', 'NOAV_method', 'TCC_type', 'number_final_static_methods']
+
+DTF ['LOC_package', 'NOCS_type', 'number_constructor_DefaultConstructor_methods', 'number_final_methods', 'NIM_type', 'number_final_not_static_methods', 'NOI_package', 'NOAM_type']
+
+SVMF ['NOM_package', 'NOI_package', 'DIT_type', 'num_static_not_final_attributes', 'LAA_method', 'number_static_methods', 'number_final_methods', 'CDISP_method']
+
+
+----- _long-method-2-4 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'WMC_type', 'NIM_type', 'number_package_visibility_attributes', 'LOCNAMM_type', 'NOAV_method', 'NOC_type', 'number_final_static_methods', 'RFC_type']
+
+DTF ['number_not_final_not_static_methods', 'MaMCL_method', 'number_protected_visibility_methods', 'number_constructor_DefaultConstructor_methods', 'ATFD_method', 'CM_method', 'NOC_type', 'number_final_not_static_methods']
+
+SVMF ['MAXNESTING_method', 'NOC_type', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'number_final_static_methods', 'ATFD_type', 'num_final_static_attributes', 'TCC_type']
+
+
+----- _long-method-3-0 -----
+
+CFS ['WMC_type', 'number_protected_visibility_attributes', 'RFC_type', 'LOC_type', 'NMCS_method', 'LOCNAMM_type', 'NOC_type']
+
+DTF ['WMC_type', 'CFNAMM_method', 'number_constructor_DefaultConstructor_methods', 'NOI_project', 'CDISP_method', 'number_public_visibility_methods', 'FANOUT_method', 'NOII_type']
+
+SVMF ['FANOUT_method', 'NMO_type', 'DIT_type', 'FDP_method', 'NOC_type', 'CM_method', 'num_static_not_final_attributes', 'NOI_package']
+
+
+----- _long-method-3-1 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'CYCLO_method', 'WMC_type', 'NOC_type', 'NOAV_method', 'number_final_static_methods', 'RFC_type', 'CDISP_method']
+
+DTF ['LOC_package', 'CM_method', 'NOM_project', 'number_final_methods', 'number_abstract_methods', 'num_final_not_static_attributes', 'NOCS_project', 'number_final_not_static_methods']
+
+SVMF ['NOM_package', 'CC_method', 'CDISP_method', 'LCOM5_type', 'number_constructor_DefaultConstructor_methods', 'LAA_method', 'MaMCL_method', 'NOI_package']
+
+
+----- _long-method-3-2 -----
+
+CFS ['LOC_type', 'WMC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'TCC_type', 'NOC_type', 'WOC_type', 'number_standard_design_methods']
+
+DTF ['TCC_type', 'number_constructor_DefaultConstructor_methods', 'CM_method', 'num_final_not_static_attributes', 'NMO_type', 'CC_method', 'number_abstract_methods', 'number_final_methods']
+
+SVMF ['number_standard_design_methods', 'LCOM5_type', 'number_final_methods', 'TCC_type', 'AMWNAMM_type', 'NOMNAMM_type', 'CDISP_method', 'WOC_type']
+
+
+----- _long-method-3-3 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'WMC_type', 'LOCNAMM_type', 'NIM_type', 'WMCNAMM_type', 'number_final_static_methods', 'NOC_type']
+
+DTF ['LOC_type', 'number_not_final_static_methods', 'LCOM5_type', 'number_package_visibility_methods', 'number_package_visibility_attributes', 'NMO_type', 'number_final_not_static_methods', 'DIT_type']
+
+SVMF ['MAXNESTING_method', 'NOP_method', 'number_private_visibility_attributes', 'CDISP_method', 'AMW_type', 'DIT_type', 'CM_method', 'NOII_type']
+
+
+----- _long-method-3-4 -----
+
+CFS ['LOC_type', 'WMC_type', 'number_protected_visibility_attributes', 'LOCNAMM_type', 'NOC_type', 'number_constructor_DefaultConstructor_methods', 'NOAV_method', 'NIM_type', 'NOM_package', 'num_final_not_static_attributes', 'number_final_static_methods', 'WMCNAMM_type', 'number_package_visibility_attributes', 'NMCS_method', 'WOC_type']
+
+DTF ['NOM_package', 'number_constructor_DefaultConstructor_methods', 'num_final_not_static_attributes', 'NOI_package', 'number_final_static_methods', 'number_final_methods', 'number_package_visibility_methods', 'CYCLO_method']
+
+SVMF ['MAXNESTING_method', 'num_static_not_final_attributes', 'number_constructor_NotDefaultConstructor_methods', 'NOC_type', 'MaMCL_method', 'TCC_type', 'WOC_type', 'LCOM5_type']
+
+
+----- _long-method-4-0 -----
+
+CFS ['LOC_type', 'number_protected_visibility_attributes', 'CYCLO_method', 'RFC_type', 'NMCS_method', 'LOCNAMM_type', 'WMC_type', 'NOC_type', 'TCC_type']
+
+DTF ['NOI_package', 'number_package_visibility_attributes', 'NOP_method', 'number_final_methods', 'number_package_visibility_methods', 'number_constructor_DefaultConstructor_methods', 'number_final_not_static_methods', 'number_final_static_methods']
+
+SVMF ['NOI_package', 'NOP_method', 'number_not_final_static_methods', 'number_constructor_DefaultConstructor_methods', 'number_static_methods', 'CM_method', 'CDISP_method', 'number_final_methods']
+
+
+----- _long-method-4-1 -----
+
+CFS ['WMC_type', 'num_static_not_final_attributes', 'LOC_type', 'number_protected_visibility_attributes', 'NIM_type', 'LOCNAMM_type', 'NOC_type', 'TCC_type', 'number_final_static_methods', 'RFC_type']
+
+DTF ['RFC_type', 'TCC_type', 'FDP_method', 'LAA_method', 'MaMCL_method', 'number_constructor_DefaultConstructor_methods', 'number_abstract_methods', 'WOC_type']
+
+SVMF ['RFC_type', 'number_constructor_NotDefaultConstructor_methods', 'FANOUT_method', 'LCOM5_type', 'NMO_type', 'CBO_type', 'number_package_visibility_methods', 'NOPA_type']
+
+
+----- _long-method-4-2 -----
+
+CFS ['WMC_type', 'number_protected_visibility_attributes', 'LOC_type', 'number_constructor_DefaultConstructor_methods', 'LOCNAMM_type', 'TCC_type', 'NOC_type', 'WMCNAMM_type', 'number_final_static_methods']
+
+DTF ['WMC_type', 'num_static_not_final_attributes', 'number_constructor_DefaultConstructor_methods', 'number_final_static_methods', 'number_abstract_methods', 'NOPA_type', 'number_protected_visibility_attributes', 'number_final_methods']
+
+SVMF ['MAXNESTING_method', 'NOC_type', 'NOPA_type', 'NOII_type', 'CDISP_method', 'number_final_methods', 'LCOM5_type', 'number_constructor_DefaultConstructor_methods']
+
+
+----- _long-method-4-3 -----
+
+CFS ['LOCNAMM_type', 'WMC_type', 'number_protected_visibility_attributes', 'CDISP_method', 'NOC_type', 'LOC_type', 'NIM_type', 'number_final_static_methods', 'NOAV_method', 'AMWNAMM_type']
+
+DTF ['TCC_type', 'NOC_type', 'number_package_visibility_attributes', 'number_final_methods', 'NOII_type', 'number_abstract_methods', 'number_final_not_static_methods', 'num_final_not_static_attributes']
+
+SVMF ['NOAM_type', 'FDP_method', 'CM_method', 'NOA_type', 'NOC_type', 'number_not_final_static_methods', 'MaMCL_method', 'ATFD_type']
+
+
+----- _long-method-4-4 -----
+
+CFS ['LOC_type', 'NOAV_method', 'number_protected_visibility_attributes', 'WMC_type', 'LOCNAMM_type', 'NOC_type', 'num_final_not_static_attributes', 'WMCNAMM_type', 'NIM_type', 'number_final_static_methods']
+
+DTF ['NOM_package', 'NOI_package', 'NOCS_project', 'NOM_project', 'number_abstract_methods', 'LOC_project', 'LOC_package', 'number_constructor_DefaultConstructor_methods']
+
+SVMF ['NOM_package', 'NOI_project', 'CDISP_method', 'NOCS_project', 'NOPK_project', 'LCOM5_type', 'LOC_project', 'MaMCL_method']
