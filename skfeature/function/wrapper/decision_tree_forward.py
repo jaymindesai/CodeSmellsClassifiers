@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import KFold
+from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.metrics import accuracy_score
 
 
@@ -25,7 +25,8 @@ def decision_tree_forward(X, y, n_selected_features):
 
     n_samples, n_features = X.shape
     # using 10 fold cross validation
-    cv = KFold(n_samples, n_folds=10, shuffle=True, random_state=0)
+    # cv = KFold(n_samples, n_folds=10, shuffle=True, random_state=0)
+    skfolds = StratifiedKFold(n_splits=10, shuffle=True, random_state=0)
     # choose decision tree as the classifier
     clf = DecisionTreeClassifier(random_state=0)
 
@@ -39,7 +40,8 @@ def decision_tree_forward(X, y, n_selected_features):
                 F.append(i)
                 X_tmp = X[:, F]
                 acc = 0
-                for train, test in cv:
+                # for train, test in cv:
+                for train, test in skfolds.split(X, y):
                     clf.fit(X_tmp[train], y[train])
                     y_predict = clf.predict(X_tmp[test])
                     acc_tmp = accuracy_score(y[test], y_predict)

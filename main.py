@@ -1,13 +1,11 @@
 import os
 import shutil
 
-output_directories = ['_data-class', '_feature-envy', '_god-class', '_long-method']
-
-shutil.rmtree(f'./_output', ignore_errors=True)
-os.mkdir('./_output')
-
-for code_smell in output_directories:
-    os.mkdir(f'./_output/{code_smell}')
+for root in ['./__norm', './__smote', './__both']:
+    shutil.rmtree(root, ignore_errors=True)
+    os.mkdir(root)
+    for smell in ['_data-class', '_feature-envy', '_god-class', '_long-method']:
+        os.mkdir(f'{root}/{smell}')
 
 # from bl_clfs import bl
 # from cl_clfs import cl

@@ -1,9 +1,14 @@
+import datetime
 import os
 import pandas
 import sys
 import time
 
-from imblearn.over_sampling import SMOTE, ADASYN
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+from imblearn.over_sampling import SMOTE
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -147,55 +152,6 @@ for file in context.FILES:
                           'svmf':
                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
 
-    adasyn_metrics = {'rand':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                      'oner':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'cfs':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'dtf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'svmf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                      'cart':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'cfs':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'dtf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'svmf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                      'nb':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'cfs':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'dtf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'svmf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                      'rf':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'cfs':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'dtf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'svmf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                      'svm':
-                          {'def':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'cfs':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'dtf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                           'svmf':
-                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
-
     # Run the 5-fold cross-validation for 5 runs, shuffling each run
     for run in range(5):
 
@@ -241,6 +197,34 @@ for file in context.FILES:
                                        'dtf': clone(classifiers['svm']),
                                        'svmf': clone(classifiers['svm'])}}
 
+            smote_classifiers = {'rand':
+                                     {'def': clone(classifiers['rand'])},
+                                 'oner':
+                                     {'def': clone(classifiers['oner']),
+                                      'cfs': clone(classifiers['oner']),
+                                      'dtf': clone(classifiers['oner']),
+                                      'svmf': clone(classifiers['oner'])},
+                                 'cart':
+                                     {'def': clone(classifiers['cart']),
+                                      'cfs': clone(classifiers['cart']),
+                                      'dtf': clone(classifiers['cart']),
+                                      'svmf': clone(classifiers['cart'])},
+                                 'nb':
+                                     {'def': clone(classifiers['nb']),
+                                      'cfs': clone(classifiers['nb']),
+                                      'dtf': clone(classifiers['nb']),
+                                      'svmf': clone(classifiers['nb'])},
+                                 'rf':
+                                     {'def': clone(classifiers['rf']),
+                                      'cfs': clone(classifiers['rf']),
+                                      'dtf': clone(classifiers['rf']),
+                                      'svmf': clone(classifiers['rf'])},
+                                 'svm':
+                                     {'def': clone(classifiers['svm']),
+                                      'cfs': clone(classifiers['svm']),
+                                      'dtf': clone(classifiers['svm']),
+                                      'svmf': clone(classifiers['svm'])}}
+
             # Retrieve the training data and training labels for the fold
             train_data = unlabeled_data.iloc[train_indices]
             train_labels = labels.iloc[train_indices]
@@ -255,6 +239,7 @@ for file in context.FILES:
             cfs_feats = CFS.cfs(train_data.values, train_labels.values)
             cfs_end = time.perf_counter()
             cfs_time = cfs_end - cfs_start
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED CFS')
 
             cfs_train_data = train_data.iloc[:, cfs_feats]
             cfs_test_data = test_data.iloc[:, cfs_feats]
@@ -267,6 +252,7 @@ for file in context.FILES:
             dtf_feats = dtf.decision_tree_forward(train_data.values, train_labels.values, num_feats)
             dtf_end = time.perf_counter()
             dtf_time = dtf_end - dtf_start
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED DTF')
 
             dtf_train_data = train_data.iloc[:, dtf_feats]
             dtf_test_data = test_data.iloc[:, dtf_feats]
@@ -276,6 +262,7 @@ for file in context.FILES:
             svmf_feats = svmf.svm_forward(train_data.values, train_labels.values, num_feats)
             svmf_end = time.perf_counter()
             svmf_time = svmf_end - svmf_start
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED SVMF')
 
             svmf_train_data = train_data.iloc[:, svmf_feats]
             svmf_test_data = test_data.iloc[:, svmf_feats]
@@ -285,21 +272,11 @@ for file in context.FILES:
 
             # SMOTE
             smote_train_data, smote_train_labels = SMOTE().fit_resample(train_data, train_labels)
-
             smote_cfs_train_data, smote_cfs_train_labels = SMOTE().fit_resample(cfs_train_data, train_labels)
+            smote_dtf_train_data, smote_dtf_train_labels = SMOTE().fit_resample(dtf_train_data, train_labels)
+            smote_svmf_train_data, smote_svmf_train_labels = SMOTE().fit_resample(svmf_train_data, train_labels)
 
-            smote_dtf_train_data, smote_dtf_test_data = SMOTE().fit_resample(dtf_train_data, train_labels)
-
-            smote_svmf_train_data, smote_svmf_test_data = SMOTE().fit_resample(svmf_train_data, train_labels)
-
-            # ADASYN
-            adasyn_train_data, adasyn_test_data = ADASYN().fit_resample(train_data, train_labels)
-
-            adasyn_cfs_train_data, adasyn_cfs_test_data = ADASYN().fit_resample(cfs_train_data, train_labels)
-
-            adasyn_dtf_train_data, adasyn_dtf_test_data = ADASYN().fit_resample(dtf_train_data, train_labels)
-
-            adasyn_svmf_train_data, adasyn_svmf_test_data = ADASYN().fit_resample(svmf_train_data, train_labels)
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED SMOTE')
 
             # Train the classifiers for the fold
             for clf in cloned_classifiers:
@@ -307,12 +284,18 @@ for file in context.FILES:
                     for fs in cloned_classifiers[clf]:
                         if fs == 'def':
                             cloned_classifiers[clf][fs].fit(train_data, train_labels)
+                            smote_classifiers[clf][fs].fit(smote_train_data, smote_train_labels)
                         elif fs == 'cfs':
                             cloned_classifiers[clf][fs].fit(cfs_train_data, train_labels)
+                            smote_classifiers[clf][fs].fit(smote_cfs_train_data, smote_cfs_train_labels)
                         elif fs == 'dtf':
                             cloned_classifiers[clf][fs].fit(dtf_train_data, train_labels)
+                            smote_classifiers[clf][fs].fit(smote_dtf_train_data, smote_dtf_train_labels)
                         elif fs == 'svmf':
                             cloned_classifiers[clf][fs].fit(svmf_train_data, train_labels)
+                            smote_classifiers[clf][fs].fit(smote_svmf_train_data, smote_svmf_train_labels)
+
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED TRAINING')
 
             predictions = {'rand':
                                {'def': None},
@@ -327,18 +310,37 @@ for file in context.FILES:
                            'svm':
                                {'def': None, 'cfs': None, 'dtf': None, 'svmf': None}}
 
+            smote_predictions = {'rand':
+                                     {'def': None},
+                                 'oner':
+                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                                 'cart':
+                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                                 'nb':
+                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                                 'rf':
+                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                                 'svm':
+                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None}}
+
             # Test the classifiers for the fold
             for clf in predictions:
                 if clf in use_clfs:
                     for fs in predictions[clf]:
                         if fs == 'def':
                             predictions[clf][fs] = cloned_classifiers[clf][fs].predict(test_data)
+                            smote_predictions[clf][fs] = smote_classifiers[clf][fs].predict(test_data)
                         elif fs == 'cfs':
                             predictions[clf][fs] = cloned_classifiers[clf][fs].predict(cfs_test_data)
+                            smote_predictions[clf][fs] = smote_classifiers[clf][fs].predict(cfs_test_data)
                         elif fs == 'dtf':
                             predictions[clf][fs] = cloned_classifiers[clf][fs].predict(dtf_test_data)
+                            smote_predictions[clf][fs] = smote_classifiers[clf][fs].predict(dtf_test_data)
                         elif fs == 'svmf':
                             predictions[clf][fs] = cloned_classifiers[clf][fs].predict(svmf_test_data)
+                            smote_predictions[clf][fs] = smote_classifiers[clf][fs].predict(svmf_test_data)
+
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED TESTING')
 
             matrix_metrics = {'rand':
                                   {'def':
@@ -389,6 +391,55 @@ for file in context.FILES:
                                    'svmf':
                                        {'tn': None, 'fp': None, 'fn': None, 'tp': None}}}
 
+            smote_matrix_metrics = {'rand':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
+                                    'oner':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'cfs':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'dtf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'svmf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
+                                    'cart':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'cfs':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'dtf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'svmf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
+                                    'nb':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'cfs':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'dtf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'svmf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
+                                    'rf':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'cfs':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'dtf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'svmf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
+                                    'svm':
+                                        {'def':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'cfs':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'dtf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
+                                         'svmf':
+                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None}}}
+
             # Retrieve the confusion matrix metrics for the classifiers
             for clf in matrix_metrics:
                 if clf in use_clfs:
@@ -397,6 +448,13 @@ for file in context.FILES:
                         matrix_metrics[clf][fs]['fp'], \
                         matrix_metrics[clf][fs]['fn'], \
                         matrix_metrics[clf][fs]['tp'] = confusion_matrix(test_labels, predictions[clf][fs]).ravel()
+
+                        smote_matrix_metrics[clf][fs]['tn'], \
+                        smote_matrix_metrics[clf][fs]['fp'], \
+                        smote_matrix_metrics[clf][fs]['fn'], \
+                        smote_matrix_metrics[clf][fs]['tp'] = confusion_matrix(test_labels,
+                                                                               smote_predictions[clf][fs]).ravel()
+
 
             # Calculate the Accuracy, F-Score, Kappa, Percent Distance to Heaven, and Informedness metrics
             for clf in metrics:
@@ -430,6 +488,38 @@ for file in context.FILES:
                                                                            matrix_metrics[clf][fs]['fn'],
                                                                            matrix_metrics[clf][fs]['tp']))
 
+                        ### smote
+
+                        smote_metrics[clf][fs]['acc'].append(context.acc(smote_matrix_metrics[clf][fs]['tn'],
+                                                                         smote_matrix_metrics[clf][fs]['fp'],
+                                                                         smote_matrix_metrics[clf][fs]['fn'],
+                                                                         smote_matrix_metrics[clf][fs]['tp']))
+
+                        smote_metrics[clf][fs]['f_score'].append(context.f_score(smote_matrix_metrics[clf][fs]['fp'],
+                                                                                 smote_matrix_metrics[clf][fs]['fn'],
+                                                                                 smote_matrix_metrics[clf][fs]['tp']))
+
+                        smote_metrics[clf][fs]['kappa'].append(context.kappa(smote_matrix_metrics[clf][fs]['tn'],
+                                                                             smote_matrix_metrics[clf][fs]['fp'],
+                                                                             smote_matrix_metrics[clf][fs]['fn'],
+                                                                             smote_matrix_metrics[clf][fs]['tp'],
+                                                                             smote_matrix_metrics['rand']['def']['tn'],
+                                                                             smote_matrix_metrics['rand']['def']['fp'],
+                                                                             smote_matrix_metrics['rand']['def']['fn'],
+                                                                             smote_matrix_metrics['rand']['def']['tp']))
+
+                        smote_metrics[clf][fs]['inform'].append(context.inform(smote_matrix_metrics[clf][fs]['tn'],
+                                                                               smote_matrix_metrics[clf][fs]['fp'],
+                                                                               smote_matrix_metrics[clf][fs]['fn'],
+                                                                               smote_matrix_metrics[clf][fs]['tp']))
+
+                        smote_metrics[clf][fs]['pct_dth'].append(context.pct_dth(smote_matrix_metrics[clf][fs]['tn'],
+                                                                                 smote_matrix_metrics[clf][fs]['fp'],
+                                                                                 smote_matrix_metrics[clf][fs]['fn'],
+                                                                                 smote_matrix_metrics[clf][fs]['tp']))
+
+            print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED PERFORM')
+
             fold += 1
 
     # print(f'----- {file_name} -----\n')
@@ -438,16 +528,41 @@ for file in context.FILES:
     #         print(f'-- {clf}-{fs} --\n')
     #         for metric in metrics[clf][fs]:
     #             print(metric)
-    #             print([round(x, 2) for x in metrics[clf][fs][metric]], '\n')
+    #             print([round(x, 2) for x in metrics[clf][fs][metric]])
+    #             print([round(x, 2) for x in smote_metrics[clf][fs][metric]], '\n')
 
-    # for clf in metrics:
-    #         for fs in metrics[clf]:
-    #             for metric in metrics[clf][fs]:
-    #                 with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-    #                     output_file.write(f'{clf}-{fs}\n')
-    #                     for value in metrics[clf][fs][metric]:
-    #                         output_file.write(f'{value} ')
-    #                     output_file.write('\n\n')
+    for clf in metrics:
+            for fs in metrics[clf]:
+                for metric in metrics[clf][fs]:
+                    with open(f'{context.ROOT}/__norm/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+                        output_file.write(f'{clf}-{fs}\n')
+                        for value in metrics[clf][fs][metric]:
+                            output_file.write(f'{value} ')
+                        output_file.write('\n\n')
+
+    for clf in smote_metrics:
+            for fs in smote_metrics[clf]:
+                for metric in smote_metrics[clf][fs]:
+                    with open(f'{context.ROOT}/__smote/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+                        output_file.write(f'{clf}-{fs}\n')
+                        for value in smote_metrics[clf][fs][metric]:
+                            output_file.write(f'{value} ')
+                        output_file.write('\n\n')
+
+    for clf in metrics:
+            for fs in metrics[clf]:
+                for metric in metrics[clf][fs]:
+                    with open(f'{context.ROOT}/__both/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+
+                        output_file.write(f'{clf}-{fs}\n')
+                        for value in metrics[clf][fs][metric]:
+                            output_file.write(f'{value} ')
+                        output_file.write('\n\n')
+
+                        output_file.write(f'{clf}-{fs}-smote\n')
+                        for value in smote_metrics[clf][fs][metric]:
+                            output_file.write(f'{value} ')
+                        output_file.write('\n\n')
 
     # for clf in metrics:
     #     for metric in metrics[clf]:
