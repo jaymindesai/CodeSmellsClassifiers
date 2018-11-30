@@ -1,7 +1,9 @@
 import os
 import pandas
 import sys
+import time
 
+from imblearn.over_sampling import SMOTE, ADASYN
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -96,6 +98,104 @@ for file in context.FILES:
                     'svmf':
                         {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
 
+    smote_metrics = {'rand':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                     'oner':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'cfs':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'dtf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'svmf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                     'cart':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'cfs':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'dtf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'svmf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                     'nb':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'cfs':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'dtf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'svmf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                     'rf':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'cfs':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'dtf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'svmf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                     'svm':
+                         {'def':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'cfs':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'dtf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                          'svmf':
+                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
+
+    adasyn_metrics = {'rand':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                      'oner':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'cfs':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'dtf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'svmf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                      'cart':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'cfs':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'dtf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'svmf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                      'nb':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'cfs':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'dtf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'svmf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                      'rf':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'cfs':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'dtf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'svmf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                      'svm':
+                          {'def':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'cfs':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'dtf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                           'svmf':
+                               {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
+
     # Run the 5-fold cross-validation for 5 runs, shuffling each run
     for run in range(5):
 
@@ -149,27 +249,59 @@ for file in context.FILES:
             test_data = unlabeled_data.iloc[test_indices]
             test_labels = labels.iloc[test_indices]
 
-            print(f'\n----- {file_name}-{run}-{fold} -----')
+            # print(f'\n----- {file_name}-{run}-{fold} -----')
 
+            cfs_start = time.perf_counter()
             cfs_feats = CFS.cfs(train_data.values, train_labels.values)
+            cfs_end = time.perf_counter()
+            cfs_time = cfs_end - cfs_start
+
             cfs_train_data = train_data.iloc[:, cfs_feats]
             cfs_test_data = test_data.iloc[:, cfs_feats]
-            print('\nCFS', list(cfs_train_data), '\n')
+            # print('\nCFS', list(cfs_train_data), '\n')
 
             rows, cols = train_data.shape
             num_feats = int(cols ** 0.5)
 
+            dtf_start = time.perf_counter()
             dtf_feats = dtf.decision_tree_forward(train_data.values, train_labels.values, num_feats)
+            dtf_end = time.perf_counter()
+            dtf_time = dtf_end - dtf_start
+
             dtf_train_data = train_data.iloc[:, dtf_feats]
             dtf_test_data = test_data.iloc[:, dtf_feats]
-            print('DTF', list(dtf_train_data), '\n')
+            # print('DTF', list(dtf_train_data), '\n')
 
+            svmf_start = time.perf_counter()
             svmf_feats = svmf.svm_forward(train_data.values, train_labels.values, num_feats)
+            svmf_end = time.perf_counter()
+            svmf_time = svmf_end - svmf_start
+
             svmf_train_data = train_data.iloc[:, svmf_feats]
             svmf_test_data = test_data.iloc[:, svmf_feats]
-            print('SVMF', list(svmf_train_data), '\n')
+            # print('SVMF', list(svmf_train_data), '\n')
 
-            #Train the classifiers for the fold
+            # print(f'{file_name.replace("_", "")},{cfs_time},{dtf_time},{svmf_time}')
+
+            # SMOTE
+            smote_train_data, smote_train_labels = SMOTE().fit_resample(train_data, train_labels)
+
+            smote_cfs_train_data, smote_cfs_train_labels = SMOTE().fit_resample(cfs_train_data, train_labels)
+
+            smote_dtf_train_data, smote_dtf_test_data = SMOTE().fit_resample(dtf_train_data, train_labels)
+
+            smote_svmf_train_data, smote_svmf_test_data = SMOTE().fit_resample(svmf_train_data, train_labels)
+
+            # ADASYN
+            adasyn_train_data, adasyn_test_data = ADASYN().fit_resample(train_data, train_labels)
+
+            adasyn_cfs_train_data, adasyn_cfs_test_data = ADASYN().fit_resample(cfs_train_data, train_labels)
+
+            adasyn_dtf_train_data, adasyn_dtf_test_data = ADASYN().fit_resample(dtf_train_data, train_labels)
+
+            adasyn_svmf_train_data, adasyn_svmf_test_data = ADASYN().fit_resample(svmf_train_data, train_labels)
+
+            # Train the classifiers for the fold
             for clf in cloned_classifiers:
                 if clf in use_clfs:
                     for fs in cloned_classifiers[clf]:
@@ -270,7 +402,6 @@ for file in context.FILES:
             for clf in metrics:
                 if clf in use_clfs:
                     for fs in metrics[clf]:
-
                         metrics[clf][fs]['acc'].append(context.acc(matrix_metrics[clf][fs]['tn'],
                                                                    matrix_metrics[clf][fs]['fp'],
                                                                    matrix_metrics[clf][fs]['fn'],
@@ -309,14 +440,14 @@ for file in context.FILES:
     #             print(metric)
     #             print([round(x, 2) for x in metrics[clf][fs][metric]], '\n')
 
-    for clf in metrics:
-            for fs in metrics[clf]:
-                for metric in metrics[clf][fs]:
-                    with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-                        output_file.write(f'{clf}-{fs}\n')
-                        for value in metrics[clf][fs][metric]:
-                            output_file.write(f'{value} ')
-                        output_file.write('\n\n')
+    # for clf in metrics:
+    #         for fs in metrics[clf]:
+    #             for metric in metrics[clf][fs]:
+    #                 with open(f'{context.ROOT}/_output/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+    #                     output_file.write(f'{clf}-{fs}\n')
+    #                     for value in metrics[clf][fs][metric]:
+    #                         output_file.write(f'{value} ')
+    #                     output_file.write('\n\n')
 
     # for clf in metrics:
     #     for metric in metrics[clf]:
