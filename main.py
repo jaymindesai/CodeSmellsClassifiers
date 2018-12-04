@@ -1,10 +1,16 @@
 import os
 import shutil
 
+# for root in ['./__norm', './__smote', './__both']:
+#     shutil.rmtree(root, ignore_errors=True)
+#     os.mkdir(root)
+#     for smell in ['_data-class', '_feature-envy', '_god-class', '_long-method']:
+#         os.mkdir(f'{root}/{smell}')
+
 for root in ['./__norm', './__smote', './__both']:
     shutil.rmtree(root, ignore_errors=True)
     os.mkdir(root)
-    for smell in ['_data-class', '_feature-envy', '_god-class', '_long-method']:
+    for smell in ['cl-data-class', 'cl-god-class', 'ml-feature-envy', 'ml-long-method']:
         os.mkdir(f'{root}/{smell}')
 
 # from bl_clfs import bl
