@@ -50,7 +50,7 @@ for file in context.FILES:
                    'oner': DecisionTreeClassifier(max_depth=1, random_state=0),
                    'cart': DecisionTreeClassifier(random_state=0),
                    'nb': GaussianNB(),
-                   'rf': RandomForestClassifier(random_state=0),
+                   'rf': RandomForestClassifier(random_state=0, n_estimators=100),
                    'svm': SVC(random_state=0)}
 
     # Set up a dictionary to record performance metrics for each classifier across runs/folds
