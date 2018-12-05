@@ -271,10 +271,10 @@ for file in context.FILES:
             # print(f'{file_name.replace("_", "")},{cfs_time},{dtf_time},{svmf_time}')
 
             # SMOTE
-            smote_train_data, smote_train_labels = SMOTE().fit_resample(train_data, train_labels)
-            smote_cfs_train_data, smote_cfs_train_labels = SMOTE().fit_resample(cfs_train_data, train_labels)
-            smote_dtf_train_data, smote_dtf_train_labels = SMOTE().fit_resample(dtf_train_data, train_labels)
-            smote_svmf_train_data, smote_svmf_train_labels = SMOTE().fit_resample(svmf_train_data, train_labels)
+            smote_train_data, smote_train_labels = SMOTE(random_state=0).fit_resample(train_data, train_labels)
+            smote_cfs_train_data, smote_cfs_train_labels = SMOTE(random_state=0).fit_resample(cfs_train_data, train_labels)
+            smote_dtf_train_data, smote_dtf_train_labels = SMOTE(random_state=0).fit_resample(dtf_train_data, train_labels)
+            smote_svmf_train_data, smote_svmf_train_labels = SMOTE(random_state=0).fit_resample(svmf_train_data, train_labels)
 
             print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED SMOTE')
 
