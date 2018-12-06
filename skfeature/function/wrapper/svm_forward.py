@@ -28,7 +28,7 @@ def svm_forward(X, y, n_selected_features):
     # cv = KFold(n_samples, n_folds=10, shuffle=True, random_state=0)
     skfolds = StratifiedKFold(n_splits=10, shuffle=True, random_state=0)
     # choose SVM as the classifier
-    clf = SVC(random_state=0)
+    clf = SVC(random_state=0, gamma='scale')
 
     # selected feature set, initialized to be empty
     F = []
