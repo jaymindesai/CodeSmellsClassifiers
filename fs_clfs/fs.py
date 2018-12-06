@@ -56,89 +56,89 @@ for file in context.FILES:
     # Set up a dictionary to record performance metrics for each classifier across runs/folds
     metrics = {'rand':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'oner':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'cart':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'nb':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'rf':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'svm':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}}}
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}}}
 
     smote_metrics = {'rand':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'oner':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'cart':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'nb':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'rf':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}},
                'svm':
                    {'def':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}}}
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': [], 'tpr': [], 'tnr': [], 'fpr': [], 'fnr': []}}}
 
     # Run the 5-fold cross-validation for 5 runs, shuffling each run
     for run in range(5):
@@ -440,16 +440,24 @@ for file in context.FILES:
                                                                            matrix_metrics[clf][fs]['fn'],
                                                                            matrix_metrics[clf][fs]['tp']))
 
-                        metrics[clf][fs]['prec'].append(context.prec(matrix_metrics[clf][fs]['fp'],
-                                                                     matrix_metrics[clf][fs]['tp']))
-
-                        metrics[clf][fs]['rec'].append(context.prec(matrix_metrics[clf][fs]['fn'],
-                                                                    matrix_metrics[clf][fs]['tp']))
 
                         metrics[clf][fs]['pct_dth'].append(context.pct_dth(matrix_metrics[clf][fs]['tn'],
                                                                            matrix_metrics[clf][fs]['fp'],
                                                                            matrix_metrics[clf][fs]['fn'],
                                                                            matrix_metrics[clf][fs]['tp']))
+
+                        metrics[clf][fs]['tpr'].append(context.tpr(matrix_metrics[clf][fs]['fn'],
+                                                                   matrix_metrics[clf][fs]['tp']))
+
+                        metrics[clf][fs]['fpr'].append(context.fpr(matrix_metrics[clf][fs]['tn'],
+                                                                   matrix_metrics[clf][fs]['fp']))
+
+                        metrics[clf][fs]['tnr'].append(context.tnr(matrix_metrics[clf][fs]['tn'],
+                                                                   matrix_metrics[clf][fs]['fp']))
+
+                        metrics[clf][fs]['fnr'].append(context.fnr(matrix_metrics[clf][fs]['fn'],
+                                                                   matrix_metrics[clf][fs]['tp']))
+
 
                         ### smote
 
@@ -462,16 +470,23 @@ for file in context.FILES:
                                                                                  smote_matrix_metrics[clf][fs]['fn'],
                                                                                  smote_matrix_metrics[clf][fs]['tp']))
 
-                        smote_metrics[clf][fs]['prec'].append(context.prec(smote_matrix_metrics[clf][fs]['fp'],
-                                                                           smote_matrix_metrics[clf][fs]['tp']))
-
-                        smote_metrics[clf][fs]['rec'].append(context.prec(smote_matrix_metrics[clf][fs]['fn'],
-                                                                          smote_matrix_metrics[clf][fs]['tp']))
 
                         smote_metrics[clf][fs]['pct_dth'].append(context.pct_dth(smote_matrix_metrics[clf][fs]['tn'],
                                                                                  smote_matrix_metrics[clf][fs]['fp'],
                                                                                  smote_matrix_metrics[clf][fs]['fn'],
                                                                                  smote_matrix_metrics[clf][fs]['tp']))
+
+                        smote_metrics[clf][fs]['tpr'].append(context.tpr(smote_matrix_metrics[clf][fs]['fn'],
+                                                                         smote_matrix_metrics[clf][fs]['tp']))
+
+                        smote_metrics[clf][fs]['fpr'].append(context.fpr(smote_matrix_metrics[clf][fs]['tn'],
+                                                                         smote_matrix_metrics[clf][fs]['fp']))
+
+                        smote_metrics[clf][fs]['tnr'].append(context.tnr(smote_matrix_metrics[clf][fs]['tn'],
+                                                                         smote_matrix_metrics[clf][fs]['fp']))
+
+                        smote_metrics[clf][fs]['fnr'].append(context.fnr(smote_matrix_metrics[clf][fs]['fn'],
+                                                                         smote_matrix_metrics[clf][fs]['tp']))
 
             print(f'{datetime.datetime.now()}: {file_name}-{run}-{fold} FINISHED PERFORM')
 
