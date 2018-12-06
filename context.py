@@ -60,3 +60,11 @@ def tpr(fn, tp):
 
 def fnr(fn, tp):
     return fn / (fn + tp) if (fn + tp) else 0
+
+
+def prec(fp, tp):
+    return tp / (tp + fp) if (tp + fp) else 0
+
+
+def rec(fn, tp):
+    return tp / (tp + fn) if (tp + fn) else 0

@@ -56,101 +56,89 @@ for file in context.FILES:
     # Set up a dictionary to record performance metrics for each classifier across runs/folds
     metrics = {'rand':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
                'oner':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                    'svmf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
                'cart':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
                'nb':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
                'rf':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
                'svm':
                    {'def':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'cfs':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'dtf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
                     'svmf':
-                        {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}}}
 
     smote_metrics = {'rand':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                     'oner':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'cfs':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'dtf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'svmf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                     'cart':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'cfs':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'dtf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'svmf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                     'nb':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'cfs':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'dtf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'svmf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                     'rf':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'cfs':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'dtf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'svmf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}},
-                     'svm':
-                         {'def':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'cfs':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'dtf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []},
-                          'svmf':
-                              {'acc': [], 'f_score': [], 'kappa': [], 'inform': [], 'pct_dth': []}}}
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+               'oner':
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+               'cart':
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+               'nb':
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+               'rf':
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}},
+               'svm':
+                   {'def':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'cfs':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'dtf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []},
+                    'svmf':
+                        {'acc': [], 'f_score': [], 'prec': [], 'rec': [], 'pct_dth': []}}}
 
     # Run the 5-fold cross-validation for 5 runs, shuffling each run
     for run in range(5):
@@ -172,10 +160,8 @@ for file in context.FILES:
             cloned_classifiers = {'rand':
                                       {'def': clone(classifiers['rand'])},
                                   'oner':
-                                      {'def': clone(classifiers['oner']),
-                                       'cfs': clone(classifiers['oner']),
-                                       'dtf': clone(classifiers['oner']),
-                                       'svmf': clone(classifiers['oner'])},
+                                      {'def': clone(classifiers['oner'])},
+
                                   'cart':
                                       {'def': clone(classifiers['cart']),
                                        'cfs': clone(classifiers['cart']),
@@ -200,10 +186,7 @@ for file in context.FILES:
             smote_classifiers = {'rand':
                                      {'def': clone(classifiers['rand'])},
                                  'oner':
-                                     {'def': clone(classifiers['oner']),
-                                      'cfs': clone(classifiers['oner']),
-                                      'dtf': clone(classifiers['oner']),
-                                      'svmf': clone(classifiers['oner'])},
+                                     {'def': clone(classifiers['oner'])},
                                  'cart':
                                      {'def': clone(classifiers['cart']),
                                       'cfs': clone(classifiers['cart']),
@@ -300,7 +283,7 @@ for file in context.FILES:
             predictions = {'rand':
                                {'def': None},
                            'oner':
-                               {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                               {'def': None},
                            'cart':
                                {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
                            'nb':
@@ -313,7 +296,7 @@ for file in context.FILES:
             smote_predictions = {'rand':
                                      {'def': None},
                                  'oner':
-                                     {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
+                                     {'def': None},
                                  'cart':
                                      {'def': None, 'cfs': None, 'dtf': None, 'svmf': None},
                                  'nb':
@@ -347,12 +330,6 @@ for file in context.FILES:
                                        {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'oner':
                                   {'def':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'cfs':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'dtf':
-                                       {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                   'svmf':
                                        {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                               'cart':
                                   {'def':
@@ -396,12 +373,6 @@ for file in context.FILES:
                                              {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                                     'oner':
                                         {'def':
-                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                         'cfs':
-                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                         'dtf':
-                                             {'tn': None, 'fp': None, 'fn': None, 'tp': None},
-                                         'svmf':
                                              {'tn': None, 'fp': None, 'fn': None, 'tp': None}},
                                     'cart':
                                         {'def':
@@ -469,19 +440,11 @@ for file in context.FILES:
                                                                            matrix_metrics[clf][fs]['fn'],
                                                                            matrix_metrics[clf][fs]['tp']))
 
-                        metrics[clf][fs]['kappa'].append(context.kappa(matrix_metrics[clf][fs]['tn'],
-                                                                       matrix_metrics[clf][fs]['fp'],
-                                                                       matrix_metrics[clf][fs]['fn'],
-                                                                       matrix_metrics[clf][fs]['tp'],
-                                                                       matrix_metrics['rand']['def']['tn'],
-                                                                       matrix_metrics['rand']['def']['fp'],
-                                                                       matrix_metrics['rand']['def']['fn'],
-                                                                       matrix_metrics['rand']['def']['tp']))
+                        metrics[clf][fs]['prec'].append(context.prec(matrix_metrics[clf][fs]['fp'],
+                                                                     matrix_metrics[clf][fs]['tp']))
 
-                        metrics[clf][fs]['inform'].append(context.inform(matrix_metrics[clf][fs]['tn'],
-                                                                         matrix_metrics[clf][fs]['fp'],
-                                                                         matrix_metrics[clf][fs]['fn'],
-                                                                         matrix_metrics[clf][fs]['tp']))
+                        metrics[clf][fs]['rec'].append(context.prec(matrix_metrics[clf][fs]['fn'],
+                                                                    matrix_metrics[clf][fs]['tp']))
 
                         metrics[clf][fs]['pct_dth'].append(context.pct_dth(matrix_metrics[clf][fs]['tn'],
                                                                            matrix_metrics[clf][fs]['fp'],
@@ -499,19 +462,11 @@ for file in context.FILES:
                                                                                  smote_matrix_metrics[clf][fs]['fn'],
                                                                                  smote_matrix_metrics[clf][fs]['tp']))
 
-                        smote_metrics[clf][fs]['kappa'].append(context.kappa(smote_matrix_metrics[clf][fs]['tn'],
-                                                                             smote_matrix_metrics[clf][fs]['fp'],
-                                                                             smote_matrix_metrics[clf][fs]['fn'],
-                                                                             smote_matrix_metrics[clf][fs]['tp'],
-                                                                             smote_matrix_metrics['rand']['def']['tn'],
-                                                                             smote_matrix_metrics['rand']['def']['fp'],
-                                                                             smote_matrix_metrics['rand']['def']['fn'],
-                                                                             smote_matrix_metrics['rand']['def']['tp']))
+                        smote_metrics[clf][fs]['prec'].append(context.prec(smote_matrix_metrics[clf][fs]['fp'],
+                                                                           smote_matrix_metrics[clf][fs]['tp']))
 
-                        smote_metrics[clf][fs]['inform'].append(context.inform(smote_matrix_metrics[clf][fs]['tn'],
-                                                                               smote_matrix_metrics[clf][fs]['fp'],
-                                                                               smote_matrix_metrics[clf][fs]['fn'],
-                                                                               smote_matrix_metrics[clf][fs]['tp']))
+                        smote_metrics[clf][fs]['rec'].append(context.prec(smote_matrix_metrics[clf][fs]['fn'],
+                                                                          smote_matrix_metrics[clf][fs]['tp']))
 
                         smote_metrics[clf][fs]['pct_dth'].append(context.pct_dth(smote_matrix_metrics[clf][fs]['tn'],
                                                                                  smote_matrix_metrics[clf][fs]['fp'],
@@ -549,20 +504,20 @@ for file in context.FILES:
                             output_file.write(f'{value} ')
                         output_file.write('\n\n')
 
-    for clf in metrics:
-            for fs in metrics[clf]:
-                for metric in metrics[clf][fs]:
-                    with open(f'{context.ROOT}/__both/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
-
-                        output_file.write(f'{clf}-{fs}\n')
-                        for value in metrics[clf][fs][metric]:
-                            output_file.write(f'{value} ')
-                        output_file.write('\n\n')
-
-                        output_file.write(f'{clf}-{fs}-smote\n')
-                        for value in smote_metrics[clf][fs][metric]:
-                            output_file.write(f'{value} ')
-                        output_file.write('\n\n')
+    # for clf in metrics:
+    #         for fs in metrics[clf]:
+    #             for metric in metrics[clf][fs]:
+    #                 with open(f'{context.ROOT}/__both/{file_name}/{file_name}-{metric}.txt', 'a+') as output_file:
+    #
+    #                     output_file.write(f'{clf}-{fs}\n')
+    #                     for value in metrics[clf][fs][metric]:
+    #                         output_file.write(f'{value} ')
+    #                     output_file.write('\n\n')
+    #
+    #                     output_file.write(f'{clf}-{fs}-smote\n')
+    #                     for value in smote_metrics[clf][fs][metric]:
+    #                         output_file.write(f'{value} ')
+    #                     output_file.write('\n\n')
 
     # for clf in metrics:
     #     for metric in metrics[clf]:
