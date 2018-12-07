@@ -1,4 +1,5 @@
 import pandas as pd
+
 from sklearn.model_selection import StratifiedKFold
 from sklearn.base import clone
 from sklearn.utils import shuffle
@@ -48,8 +49,8 @@ f_score = defaultdict(list)
 pct_dth = defaultdict(list)
 times = defaultdict(list)
 
-use_clfs = {'oner'}
-# use_clfs = {'rand', 'oner', 'cart', 'nb', 'rf', 'svm'}
+# use_clfs = {'oner'}
+use_clfs = {'rand', 'oner', 'cart', 'nb', 'rf', 'svm'}
 # use_fsrs = {'def', 'dtf'}
 use_fsrs = {'def', 'cfs', 'dtf', 'svmf'}
 runs = 5
@@ -75,15 +76,23 @@ for run in range(runs):
         X_test_def = X.iloc[test_index]
         y_test_def = y.iloc[test_index]
 
-        rows, cols = X_temp_def.shape
+        X_smote, y_smote = SMOTE(random_state=0).fit_resample(X_temp_def, y_temp_def)
+
+        X_temp = pd.DataFrame(X_smote)
+        y_temp = pd.Series(y_smote)
+
+        rows, cols = X_temp.shape
         num_feats = int(cols ** 0.5)
 
-        feature_selectors = {'def': None,
-                             'cfs': CFS.cfs(X_temp_def.values, y_temp_def.values),
-                             'dtf': dtf.decision_tree_forward(X_temp_def.values, y_temp_def.values, num_feats),
-                             'svmf': svmf.svm_forward(X_temp_def.values, y_temp_def.values, num_feats)}
+        print(X.shape[0])
+        print('SMOTE', rows + X_test_def.shape[0])
 
-        # feature_selectors = {'def': None}
+        # feature_selectors = {'def': None,
+        #                      'cfs': CFS.cfs(X_temp.values, y_temp.values),
+        #                      'dtf': dtf.decision_tree_forward(X_temp.values, y_temp.values, num_feats),
+        #                      'svmf': svmf.svm_forward(X_temp.values, y_temp.values, num_feats)}
+
+        feature_selectors = {'def': None}
 
         for clf_name, clf in classifiers.items():
             if clf_name in use_clfs:
@@ -96,22 +105,17 @@ for run in range(runs):
 
                 for fsr_name, sel_feats in use_features.items():
                     if fsr_name in use_fsrs:
-                        X_temp = X_temp_def
-                        y_temp = y_temp_def
                         X_test = X_test_def
                         y_test = y_test_def
 
                         if sel_feats is not None:
-                            X_temp_fs = X_temp.iloc[:, sel_feats]
+                            X_train = X_temp.iloc[:, sel_feats]
                             X_test = X_test.iloc[:, sel_feats]
                         else:
-                            X_temp_fs = X_temp
+                            X_train = X_temp
                             X_test = X_test
 
-                        X_smote, y_smote = SMOTE(random_state=0).fit_resample(X_temp_fs, y_temp)
-
-                        X_train = pd.DataFrame(X_smote)
-                        y_train = pd.Series(y_smote)
+                        y_train = y_temp
 
                         # Unclustered Classification
 
@@ -136,7 +140,8 @@ for run in range(runs):
                         if clust:
                             start = time()
 
-                            km = KMeans(n_clusters=K[fsr_name], random_state=0, precompute_distances=True, verbose=0).fit(X_train)
+                            km = KMeans(n_clusters=K[fsr_name], random_state=0, precompute_distances=True,
+                                        verbose=0).fit(X_train)
 
                             X_train = X_train.assign(cluster=km.labels_)
                             X_test = X_test.assign(cluster=km.predict(X_test))
@@ -168,7 +173,8 @@ for run in range(runs):
 
                             accuracy['{}-{}{}'.format(clf_name, fsr_name, '-clust')].append(context.acc(tn, fp, fn, tp))
                             f_score['{}-{}{}'.format(clf_name, fsr_name, '-clust')].append(context.f_score(fp, fn, tp))
-                            pct_dth['{}-{}{}'.format(clf_name, fsr_name, '-clust')].append(context.pct_dth(tn, fp, fn, tp))
+                            pct_dth['{}-{}{}'.format(clf_name, fsr_name, '-clust')].append(
+                                context.pct_dth(tn, fp, fn, tp))
                             times['{}-{}{}'.format(clf_name, fsr_name, '-clust')].append(end - start)
         fold += 1
 
