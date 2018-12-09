@@ -1,4 +1,5 @@
 import pandas as pd
+
 from sklearn.model_selection import StratifiedKFold
 from sklearn.base import clone
 from sklearn.utils import shuffle
@@ -22,8 +23,8 @@ import context
 from collections import defaultdict
 from time import time
 
-# df = pd.read_csv('../_data/cl-data-class.csv')
-# K = {'def': 5, 'cfs': 4, 'dtf': 5, 'svmf': 7}
+df = pd.read_csv('../_data/cl-data-class.csv')
+K = {'def': 5, 'cfs': 4, 'dtf': 5, 'svmf': 7}
 
 # df = pd.read_csv('../_data/cl-god-class.csv')
 # K = {'def': 5, 'cfs': 6, 'dtf': 4, 'svmf': 5}
@@ -31,8 +32,8 @@ from time import time
 # df = pd.read_csv('../_data/ml-feature-envy.csv')
 # K = {'def': 6, 'cfs': 6, 'dtf': 5, 'svmf': 6}
 
-df = pd.read_csv('../_data/ml-long-method.csv')
-K = {'def': 6, 'cfs': 5, 'dtf': 4, 'svmf': 5}
+# df = pd.read_csv('../_data/ml-long-method.csv')
+# K = {'def': 6, 'cfs': 5, 'dtf': 4, 'svmf': 5}
 
 skfolds = StratifiedKFold(n_splits=5, random_state=0)
 
@@ -75,15 +76,24 @@ for run in range(runs):
         X_test_def = X.iloc[test_index]
         y_test_def = y.iloc[test_index]
 
-        rows, cols = X_temp_def.shape
+        X_smote, y_smote = SMOTE(random_state=0).fit_resample(X_temp_def, y_temp_def)
+
+        X_temp = pd.DataFrame(X_smote)
+        y_temp = pd.Series(y_smote)
+
+        rows, cols = X_temp.shape
         num_feats = int(cols ** 0.5)
 
-        feature_selectors = {'def': None,
-                             'cfs': CFS.cfs(X_temp_def.values, y_temp_def.values),
-                             'dtf': dtf.decision_tree_forward(X_temp_def.values, y_temp_def.values, num_feats),
-                             'svmf': svmf.svm_forward(X_temp_def.values, y_temp_def.values, num_feats)}
+        print(cols)
+        print(X.shape[0])
+        print('SMOTE', rows + X_test_def.shape[0])
 
-        # feature_selectors = {'def': None}
+        # feature_selectors = {'def': None,
+        #                      'cfs': CFS.cfs(X_temp.values, y_temp.values),
+        #                      'dtf': dtf.decision_tree_forward(X_temp.values, y_temp.values, num_feats),
+        #                      'svmf': svmf.svm_forward(X_temp.values, y_temp.values, num_feats)}
+
+        feature_selectors = {'def': None}
 
         for clf_name, clf in classifiers.items():
             if clf_name in use_clfs:
@@ -96,22 +106,17 @@ for run in range(runs):
 
                 for fsr_name, sel_feats in use_features.items():
                     if fsr_name in use_fsrs:
-                        X_temp = X_temp_def
-                        y_temp = y_temp_def
                         X_test = X_test_def
                         y_test = y_test_def
 
                         if sel_feats is not None:
-                            X_temp_fs = X_temp.iloc[:, sel_feats]
+                            X_train = X_temp.iloc[:, sel_feats]
                             X_test = X_test.iloc[:, sel_feats]
                         else:
-                            X_temp_fs = X_temp
+                            X_train = X_temp
                             X_test = X_test
 
-                        X_smote, y_smote = SMOTE(random_state=0).fit_resample(X_temp_fs, y_temp)
-
-                        X_train = pd.DataFrame(X_smote)
-                        y_train = pd.Series(y_smote)
+                        y_train = y_temp
 
                         # Unclustered Classification
 
@@ -182,14 +187,14 @@ for metric, result in results.items():
     print(metric)
     print('')
     for k, v in result.items():
-        print(k)
-        v = map(str, v)
-        print(' '.join(v))
-        # v.sort()
-        # if metric == 'pct_dth':
-        #     print(k, '', round(1 - v[(0 + len(v)) // 2], 2))
-        # else:
-        #     print(k, '', round(v[(0 + len(v)) // 2], 2))
+        # print(k)
+        # v = map(str, v)
+        v.sort()
+        # print(' '.join(v))
+        if metric == 'pct_dth':
+            print(k, '', round(1 - v[(0 + len(v)) // 2], 2))
+        else:
+            print(k, '', round(v[(0 + len(v)) // 2], 2))
         print('')
     print('')
     print('----------')

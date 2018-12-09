@@ -1,0 +1,137 @@
+accuracy
+
+rand-def  0.42
+
+oner-def  0.57
+
+oner-cfs  0.56
+
+oner-dtf  0.6
+
+oner-svmf  0.49
+
+cart-def  0.75
+
+cart-cfs  0.76
+
+cart-dtf  0.77
+
+cart-svmf  0.78
+
+nb-def  0.46
+
+nb-cfs  0.47
+
+nb-dtf  0.51
+
+nb-svmf  0.53
+
+rf-def  0.75
+
+rf-cfs  0.78
+
+rf-dtf  0.79
+
+rf-svmf  0.77
+
+svm-def  0.67
+
+svm-cfs  0.71
+
+svm-dtf  0.71
+
+svm-svmf  0.72
+
+
+----------
+
+f_score
+
+rand-def  0.27
+
+oner-def  0.43
+
+oner-cfs  0.42
+
+oner-dtf  0.33
+
+oner-svmf  0.33
+
+cart-def  0.37
+
+cart-cfs  0.38
+
+cart-dtf  0.33
+
+cart-svmf  0.43
+
+nb-def  0.33
+
+nb-cfs  0.31
+
+nb-dtf  0.3
+
+nb-svmf  0.32
+
+rf-def  0.29
+
+rf-cfs  0.38
+
+rf-dtf  0.4
+
+rf-svmf  0.35
+
+svm-def  0.29
+
+svm-cfs  0.37
+
+svm-dtf  0.36
+
+svm-svmf  0.37
+
+
+----------
+
+1 - norm_pct_dth
+
+rand-def  0.48
+
+oner-def  0.63
+
+oner-cfs  0.63
+
+oner-dtf  0.51
+
+oner-svmf  0.45
+
+cart-def  0.56
+
+cart-cfs  0.56
+
+cart-dtf  0.54
+
+cart-svmf  0.6
+
+nb-def  0.52
+
+nb-cfs  0.52
+
+nb-dtf  0.53
+
+nb-svmf  0.51
+
+rf-def  0.48
+
+rf-cfs  0.54
+
+rf-dtf  0.55
+
+rf-svmf  0.52
+
+svm-def  0.54
+
+svm-cfs  0.6
+
+svm-dtf  0.6
+
+svm-svmf  0.59

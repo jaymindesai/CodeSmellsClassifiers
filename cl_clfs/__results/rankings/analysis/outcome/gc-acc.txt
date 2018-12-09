@@ -1,0 +1,12 @@
+         MEDIAN
+       rand-def  0.45  7
+       oner-def  0.78  2
+ oner-def-clust  0.71
+         nb-def  0.74  2
+   nb-def-clust  0.67  4
+        svm-def  0.66  4
+  svm-def-clust  0.66  4
+       cart-def  0.75  2
+ cart-def-clust  0.76  2
+         rf-def  0.6  5
+   rf-def-clust  0.6  5
