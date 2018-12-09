@@ -23,8 +23,8 @@ import context
 from collections import defaultdict
 from time import time
 
-# df = pd.read_csv('../_data/cl-data-class.csv')
-# K = {'def': 5, 'cfs': 4, 'dtf': 5, 'svmf': 7}
+df = pd.read_csv('../_data/cl-data-class.csv')
+K = {'def': 5, 'cfs': 4, 'dtf': 5, 'svmf': 7}
 
 # df = pd.read_csv('../_data/cl-god-class.csv')
 # K = {'def': 5, 'cfs': 6, 'dtf': 4, 'svmf': 5}
@@ -32,8 +32,8 @@ from time import time
 # df = pd.read_csv('../_data/ml-feature-envy.csv')
 # K = {'def': 6, 'cfs': 6, 'dtf': 5, 'svmf': 6}
 
-df = pd.read_csv('../_data/ml-long-method.csv')
-K = {'def': 6, 'cfs': 5, 'dtf': 4, 'svmf': 5}
+# df = pd.read_csv('../_data/ml-long-method.csv')
+# K = {'def': 6, 'cfs': 5, 'dtf': 4, 'svmf': 5}
 
 skfolds = StratifiedKFold(n_splits=5, random_state=0)
 
@@ -84,6 +84,7 @@ for run in range(runs):
         rows, cols = X_temp.shape
         num_feats = int(cols ** 0.5)
 
+        print(cols)
         print(X.shape[0])
         print('SMOTE', rows + X_test_def.shape[0])
 
